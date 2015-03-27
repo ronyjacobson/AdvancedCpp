@@ -18,7 +18,7 @@ public:
 		m_name = name;
 	};
 
-	string getName() const {
+	const string getName() const {
 		return m_name;
 	};
 
@@ -26,7 +26,7 @@ public:
 		m_age = age;
 	};
 
-	int getAge() const {
+	const int getAge() const {
 		return m_age;
 	};
 
