@@ -5,14 +5,14 @@ using namespace std;
 
 class Person_t {
 public:
-	Person_t(); //CTOR
-	//~Person_t();
-	Person_t(string& name, int age);
-	Person_t(const Person_t& pr); //copy CTOR
-	const Person_t& operator=(const Person_t& pr); //operator =
-	bool operator==(const Person_t& pr); //operator ==
+	Person_t();										//CTOR
+	~Person_t();									//DTOR
+	Person_t(string& name, int age);				//Another CTOR
+	Person_t(const Person_t& pr);					//Copy CTOR
+	const Person_t& operator=(const Person_t& pr);	//Operator =
+	bool operator==(const Person_t& pr);			//Operator ==
 
-	//Setters and getters
+	//Setters and Getters
 
 	void setName(string& name){
 		m_name = name;
