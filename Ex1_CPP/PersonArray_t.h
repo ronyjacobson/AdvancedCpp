@@ -16,11 +16,11 @@ public:
 
 	// Functions
 
-	int getSize() const{
+	const int getSize() const{
 		return m_size;
 	};
 	 
-	int getCapacity() const{
+	const int getCapacity() const{
 		return m_capacity;
 	};
 
