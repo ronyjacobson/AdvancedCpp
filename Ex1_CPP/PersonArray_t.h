@@ -4,20 +4,24 @@
 class PersonArray_t
 {
 public:
+	int const growth_size = 16;
 	PersonArray_t();										//CTOR
 	PersonArray_t(int minimal_number_of_elements);			//Another CTOR
 	PersonArray_t(const PersonArray_t& pr);					//Copy CTOR
 	~PersonArray_t();										//DTOR
 	const PersonArray_t& operator=(const PersonArray_t& pr);//Operator =
 
+	// Array Object
+	Person_t **array = new Person_t*[growth_size];
+
 	// Functions
 
 	int getSize() const{
-		// TODO
+		return m_size;
 	};
-
+	 
 	int getCapacity() const{
-		// TODO
+		return m_capacity;
 	};
 
 	void insert(Person_t& person){
