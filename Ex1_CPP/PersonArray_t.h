@@ -36,6 +36,32 @@ public:
 		// TODO
 	};
 
+	void remove(string name) {
+		// TODO
+	};
+
+	void removeAll () {
+		// TODO
+	};
+
+	void removeAndDelete(string name) {
+		// TODO
+	};
+
+	void removeAndDeleteAll(string name) {
+		// TODO
+	};
+
+	void append(int index) {
+		// TODO
+		// Return element if succeeded and 0 otherwise
+	};
+
+	void prepend(int index, Person_t& person) {
+		// TODO
+		// Return if succeeds returns 1 if not, return 0;
+	};
+
 private:
 	int				m_size;		// Number Of Elements 
 	int				m_capacity;	// Capacity
