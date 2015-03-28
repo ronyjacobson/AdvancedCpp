@@ -15,15 +15,17 @@ PersonArray_t::PersonArray_t(int minimal_number_of_elements)
 	//TODO
 }
 
-PersonArray_t::PersonArray_t(const PersonArray_t& pr)					// Copy CTOR
+PersonArray_t::PersonArray_t(const PersonArray_t& pr)							// Copy CTOR
 {
-	//TODO
+	array = pr.array;
+	m_size = pr.m_size;
+	m_capacity = pr.m_capacity;
 }
 
 
 PersonArray_t::~PersonArray_t()
 {
-	//TODO
+	removeAndDeleteAll();
 }
 
 const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			//operator =
