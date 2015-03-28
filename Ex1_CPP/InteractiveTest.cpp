@@ -62,7 +62,7 @@ int main() {
 			cout << endl << "Enter name:" << endl;
 			cin >> name;
 			// Find person
-			person = array->find(name);
+			person = (Person_t*) array->find(name);
 			cout << "Found person! Name is " << (*person).getName() << " and age is " << (*person).getAge() << endl << endl;
 			break;
 		case 3:
