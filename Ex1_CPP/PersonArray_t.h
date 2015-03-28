@@ -1,5 +1,6 @@
 #pragma once
 #include "Person_t.h"
+using namespace std;
 
 class PersonArray_t
 {
@@ -24,17 +25,20 @@ public:
 		return m_capacity;
 	};
 
-	void insert(Person_t& person){
-		// TODO
+	void incSize() {
+		m_size++;
 	};
 
-	Person_t& getFirst() const{
-		// TODO
+	void dubleCapacity() {
+		m_capacity += growth_size;
+		// TODO reaclloc and copy all
 	};
 
-	Person_t& getLast() const{
-		// TODO
-	};
+	void insert(Person_t& person){};
+
+	Person_t& getFirst() const{};
+
+	Person_t& getLast() const{};
 
 	Person_t& find(string name) const{
 		// TODO
