@@ -36,6 +36,8 @@ int main() {
 			<< "8 - remove all" << endl
 			<< "9 - remove and delete" << endl
 			<< "10 - remove and delete all" << endl
+			<< "11 - append" << endl
+			<< "12 - prepend" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -43,6 +45,7 @@ int main() {
 		string name;
 		int age;
 		Person_t* person;
+		int index;
 
 		switch (c) {
 		case 1:
@@ -100,6 +103,34 @@ int main() {
 		case 10:
 			array->removeAndDeleteAll();
 			cout << "All people removed and deleted!" << endl << endl;
+			break;
+		case 11:
+			// Get user input
+			cout << endl << "Enter name:" << endl;
+			cin >> name;
+			cout << "Enter age:" << endl;
+			cin >> age;
+			cout << "Enter index:" << endl;
+			cin >> index;
+			cout << endl;
+			// Create person
+			person = new Person_t(name, age);
+			// Insert person
+			array->append(index, *person);
+			break;
+		case 12:
+			// Get user input
+			cout << endl << "Enter name:" << endl;
+			cin >> name;
+			cout << "Enter age:" << endl;
+			cin >> age;
+			cout << "Enter index:" << endl;
+			cin >> index;
+			cout << endl;
+			// Create person
+			person = new Person_t(name, age);
+			// Insert person
+			array->prepend(index, *person);
 			break;
 		default:
 			cont = false;
