@@ -25,7 +25,6 @@ public:
 		createPersonFromInput();
 		// Insert person
 		array->insert(*person);
-		
 	}
 
 	virtual void	find()		 {
@@ -66,9 +65,21 @@ public:
 	virtual void	prepend()	 { }
 	int			size() const { }
 
+	virtual int	prepend()	 {
+		int i;
+		createPersonFromInput();
+		cout << "Enter index:" << endl;
+		cin >> i;
+		cout << endl;
+		// Insert person
+		return array->prepend(i, *person);
+	}
+	void size() const {
+		cout << "The size of the array is " << array->getSize() << endl << endl;
+	}
+
 private:
 	PersonArray_t* array;
-	int index;
 	string name;
 	int age;
 	Person_t* person;
@@ -133,32 +144,14 @@ int main() {
 			test.removeAndDeleteAll();
 			break;
 		case 10:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			cout << "Enter age:" << endl;
-			cin >> age;
-			cout << "Enter index:" << endl;
-			cin >> index;
-			cout << endl;
-			// Create person
-			person = new Person_t(name, age);
-			// Insert person
-			array->append(index, *person);
+			array->removeAndDeleteAll();
+			cout << "All people removed and deleted!" << endl << endl;
 			break;
 		case 11:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			cout << "Enter age:" << endl;
-			cin >> age;
-			cout << "Enter index:" << endl;
-			cin >> index;
-			cout << endl;
-			// Create person
-			person = new Person_t(name, age);
-			// Insert person
-			array->prepend(index, *person);
+			test.append();
+			break;
+		case 12:
+			test.prepend();
 			break;
 		default:
 			cont = false;

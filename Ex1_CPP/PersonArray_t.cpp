@@ -171,6 +171,7 @@ int PersonArray_t::prepend(int i, Person_t& person) {
 int PersonArray_t::insertToIndex(int i, Person_t& person) {
 	//Check if index is out of bounds
 	if ( (i > getSize()) || (i < 0) ) {
+		cout << "Error: Index out of bounds!" << endl;
 		return 0;
 	}
 
