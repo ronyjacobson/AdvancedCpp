@@ -32,6 +32,7 @@ int main() {
 			<< "4 - print" << endl
 			<< "5 - write" << endl
 			<< "6 - size" << endl
+			<< "7 - capacity" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -67,6 +68,9 @@ int main() {
 			break;
 		case 6:
 			cout << "The size of the array is " << array->getSize() << endl << endl;
+			break;
+		case 7:
+			cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
 			break;
 		default:
 			cont = false;
