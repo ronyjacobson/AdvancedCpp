@@ -22,6 +22,8 @@ m_id(m_globID++)
 
 Person_t& Person_t::operator=(const Person_t& pr)			//operator =
 {
+	if (this == &pr)  // check for self-assignment by comparing the addresses
+		return *this;
 	m_name = pr.m_name;
 	m_age = pr.m_age;
 	return *this;
