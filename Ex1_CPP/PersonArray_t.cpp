@@ -58,8 +58,8 @@ bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
 	return true;
 }
 
-void PersonArray_t::insert(Person_t& person){
-	insertToIndex(getSize(), person);
+void PersonArray_t::insert(Person_t* person){
+	insertToIndex(getSize(), *person);
 };
 
 Person_t& PersonArray_t::getFirst() const{
