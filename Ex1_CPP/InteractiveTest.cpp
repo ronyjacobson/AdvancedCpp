@@ -5,7 +5,6 @@ using namespace std;
 class Test_t {
 public:
 
-
 	Test_t(){
 		array = new PersonArray_t();
 	}
@@ -26,19 +25,46 @@ public:
 		createPersonFromInput();
 		// Insert person
 		array->insert(*person);
+		
 	}
 
-	virtual void	find()		 { }
-	virtual void	remove()	 { }
-	virtual void	print()		 { }
-	virtual void	write()		 { }
-	virtual void	capacity()	 { }
-	virtual void	removeAll()	 { }
-	virtual void	removeAndDelete()	 { }
-	virtual void	removeAndDeleteAll()	 { }
+	virtual void	find()		 {
+		createPersonFromInput();
+		// Find person
+		person_output = array->find((*person).getName());
+		cout << "Found person! Name is " << (*person_output).getName() << " and age is " << (*person_output).getAge() << endl << endl;
+	}
+
+	virtual void	remove()	 { 
+		createPersonFromInput();
+		array->remove((*person).getName());
+		cout << "Person removed!" << endl << endl;
+	}
+	virtual void	print()		 { 
+		array->print();
+	}
+	virtual int	capacity()	 { 
+		return array->getSize();
+	}
+
+	virtual void	removeAll()	 {
+		array->removeAll();
+		cout << "All people removed!" << endl << endl;
+	}
+	virtual void	removeAndDelete()	 { 
+		createPersonFromInput();
+		// Remove person
+		array->remove((*person).getName());
+		cout << "Person removed and deleted!" << endl << endl;
+	}
+
+	virtual void	removeAndDeleteAll()	 { 
+		array->removeAndDeleteAll();
+		cout << "All people removed and deleted!" << endl << endl;
+	}
 	virtual void	append()	 { }
 	virtual void	prepend()	 { }
-	void			size() const { }
+	int			size() const { }
 
 private:
 	PersonArray_t* array;
@@ -46,6 +72,7 @@ private:
 	string name;
 	int age;
 	Person_t* person;
+	const Person_t* person_output;
 	int elemCount;
 };
 
@@ -64,14 +91,13 @@ int main() {
 			<< "2 - find" << endl
 			<< "3 - remove" << endl
 			<< "4 - print" << endl
-			<< "5 - write" << endl
-			<< "6 - size" << endl
-			<< "7 - capacity" << endl
-			<< "8 - remove all" << endl
-			<< "9 - remove and delete" << endl
-			<< "10 - remove and delete all" << endl
-			<< "11 - append" << endl
-			<< "12 - prepend" << endl
+			<< "5 - size" << endl
+			<< "6 - capacity" << endl
+			<< "7 - remove all" << endl
+			<< "8 - remove and delete" << endl
+			<< "9 - remove and delete all" << endl
+			<< "10 - append" << endl
+			<< "11 - prepend" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -83,50 +109,30 @@ int main() {
 			test.insert();
 			break;
 		case 2:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			// Find person
-			person = (Person_t*) array->find(name);
-			cout << "Found person! Name is " << (*person).getName() << " and age is " << (*person).getAge() << endl << endl;
+			test.find();
 			break;
 		case 3:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			// Remove person
-			array->remove(name);
-			cout << "Person removed!" << endl << endl;
+			test.remove();
 			break;
 		case 4:
-			array->print();
+			test.print();
 			break;
 		case 5:
-			//array->write();
+			cout << "The size of the array is " << test.size() << endl << endl;
 			break;
 		case 6:
-			cout << "The size of the array is " << array->getSize() << endl << endl;
+			cout << "The capacity of the array is " << test.capacity() << endl << endl;
 			break;
 		case 7:
-			cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
+			test.removeAll();
 			break;
 		case 8:
-			array->removeAll();
-			cout << "All people removed!" << endl << endl;
+			test.removeAndDelete();
 			break;
 		case 9:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			// Remove person
-			array->removeAndDelete(name);
-			cout << "Person removed and deleted!" << endl << endl;
+			test.removeAndDeleteAll();
 			break;
 		case 10:
-			array->removeAndDeleteAll();
-			cout << "All people removed and deleted!" << endl << endl;
-			break;
-		case 11:
 			// Get user input
 			cout << endl << "Enter name:" << endl;
 			cin >> name;
@@ -140,7 +146,7 @@ int main() {
 			// Insert person
 			array->append(index, *person);
 			break;
-		case 12:
+		case 11:
 			// Get user input
 			cout << endl << "Enter name:" << endl;
 			cin >> name;
