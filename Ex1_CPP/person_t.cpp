@@ -33,5 +33,5 @@ Person_t& Person_t::operator=(const Person_t& pr)			//operator =
 }
 
 bool Person_t::operator==(const Person_t& pr) {				// Operator ==
-	return m_id == pr.m_id;
+	return m_name == pr.m_name;
 }
