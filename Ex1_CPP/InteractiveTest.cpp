@@ -4,14 +4,35 @@ using namespace std;
 
 class Test_t {
 public:
-	Test_t(){}
-	virtual void	insert()	 { }
+	PersonArray_t* array;
+	string name;
+	int age;
+	Person_t* person;
+	int index;
+
+	Test_t(){
+		array = new PersonArray_t();
+	}
+
+	virtual void	insert()	 {
+		// Get user input
+		cout << endl << "Enter name:" << endl;
+		cin >> name;
+		cout << "Enter age:" << endl;
+		cin >> age;
+		cout << endl;
+		// Create person
+		person = new Person_t(name, age);
+		// Insert person
+		array->insert(*person);
+	}
 	virtual void	find()		 { }
 	virtual void	remove()	 { }
 	virtual void	print()		 { }
 	virtual void	write()		 { }
 	void			size() const { }
-public:
+private:
+
 	int elemCount;
 };
 
@@ -21,7 +42,7 @@ int main() {
 
 	bool cont = true;			// trigger to stop loop
 
-	PersonArray_t* array = new PersonArray_t();
+	Test_t test;
 
 	while (cont) {
 		unsigned int c;
@@ -42,23 +63,11 @@ int main() {
 		cin >> c;
 		cout << endl;
 
-		string name;
-		int age;
-		Person_t* person;
-		int index;
+		
 
 		switch (c) {
 		case 1:
-			// Get user input
-			cout << endl << "Enter name:" << endl;
-			cin >> name;
-			cout << "Enter age:" << endl;
-			cin >> age;
-			cout << endl;
-			// Create person
-			person = new Person_t(name, age);
-			// Insert person
-			array->insert(*person);
+			test.insert();
 			break;
 		case 2:
 			// Get user input
