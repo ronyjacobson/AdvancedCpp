@@ -22,39 +22,29 @@ public:
 		return m_capacity;
 	};
 
-	void insert(Person_t& person){};
+	void insert(Person_t& person);
 
-	Person_t& getFirst() const{};
+	Person_t& getFirst() const;
 
-	Person_t& getLast() const{};
+	Person_t& getLast() const;
 
-	Person_t& find(string name) const{};
+	Person_t& find(string name) const;
 
-	void remove(string name) {
-		// TODO
-	};
+	void remove(string name);
 
-	void removeAll () {
-		// TODO
-	};
+	void removeAll ();
 
-	void removeAndDelete(string name) {
-		// TODO
-	};
+	void removeAndDelete(string name);
 
-	void removeAndDeleteAll(string name) {
-		// TODO
-	};
+	void removeAndDeleteAll(string name);
 
-	void append(int index) {
-		// TODO
-		// Return element if succeeded and 0 otherwise
-	};
+	void append(int index);
+	// TODO
+	// Return element if succeeded and 0 otherwise
 
-	void prepend(int index, Person_t& person) {
-		// TODO
-		// Return if succeeds returns 1 if not, return 0;
-	};
+	void prepend(int index, Person_t& person);
+	// TODO
+	// Return if succeeds returns 1 if not, return 0;
 
 private:
 	// Array
@@ -72,8 +62,8 @@ private:
 		m_size++;
 	};
 
-	void incCapacity() {};
+	void incCapacity();
 
-	void print(){}
+	void print();
 };
 

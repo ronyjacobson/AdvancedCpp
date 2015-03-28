@@ -24,7 +24,7 @@ int main() {
 
 	while (cont) {
 		unsigned int c;
-		cout << "Enter your choise:" << endl
+		cout << "Enter your choice:" << endl
 			<< "1 - insert" << endl
 			<< "2 - find" << endl
 			<< "3 - remove" << endl
