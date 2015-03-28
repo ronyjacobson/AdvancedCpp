@@ -21,13 +21,13 @@ public:
 		return m_capacity;
 	};
 
-	void insert(Person_t& person);
+	void insert(Person_t* person);
 
 	Person_t& getFirst() const;
 
 	Person_t& getLast() const;
 
-	const Person_t* find(string name) const;
+	Person_t* find(Person_t person) const;
 
 	void remove(string name);
 

@@ -31,13 +31,13 @@ public:
 	virtual void insert() {
 		createPersonFromInput();
 		// Insert person
-		array->insert(*person);
+		array->insert(person);
 	}
 
 	virtual void find() {
-		createNameFromInput();
+		createPersonFromInput();
 		// Find person
-		person_output = array->find(name);
+		person_output = array->find(*person);
 		cout << "Found person! Name is " << (*person_output).getName() << " and age is " << (*person_output).getAge() << endl << endl;
 	}
 

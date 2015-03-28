@@ -20,7 +20,7 @@ PersonArray_t::PersonArray_t(int minimal_number_of_elements)					// CTOR from in
 	// Insert new people
 	for (int i = 0; i < minimal_number_of_elements; i++){
 		Person_t* person = new Person_t();
-		insert(*person);
+		insert(person);
 	}
 }
 
@@ -58,13 +58,13 @@ bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
 	return true;
 }
 
-void PersonArray_t::insert(Person_t& person){
+void PersonArray_t::insert(Person_t* person){
 	// Chcek if capacity needs to grow
 	if (getSize() >= getCapacity()){
 		incCapacity();
 	}
 	// Insert
-	*(array + getSize()) = &person;
+	*(array + getSize()) = person;
 	incSize();
 };
 
@@ -76,9 +76,9 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-const Person_t* PersonArray_t::find(string name) const{
+Person_t* PersonArray_t::find(Person_t person) const{
 	for (int i = 0; i < getSize(); i++){
-		if ((*array[i]).getName() == name){
+		if ((*array[i]) == person){
 			return array[i];
 		}
 	}
