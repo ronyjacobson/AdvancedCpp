@@ -14,7 +14,7 @@ PersonArray_t::~PersonArray_t()
 void PersonArray_t::insert(Person_t& person){
 	// Chcek if capacity needs to grow
 	if (getSize() >= getCapacity()){
-		dubleCapacity();
+		incCapacity();
 	}
 	// Insert
 	*(array + getSize()) = &person;
