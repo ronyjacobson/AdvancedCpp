@@ -34,6 +34,19 @@ const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			//opera
 	return NULL;
 }
 
+bool PersonArray_t::operator==(const PersonArray_t& pr)							//operator ==
+{
+	if (getSize() != pr.getSize() || getCapacity() != pr.getCapacity()){
+		return false;
+	}
+	for (int i = 0; i < getSize(); i++){
+		if (!((*array[i]) == (*pr.array[i]))){
+			return false;
+		}
+	}
+	return true;
+}
+
 void PersonArray_t::insert(Person_t& person){
 	// Chcek if capacity needs to grow
 	if (getSize() >= getCapacity()){
