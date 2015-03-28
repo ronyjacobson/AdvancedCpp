@@ -46,6 +46,8 @@ public:
 	// TODO
 	// Return if succeeds returns 1 if not, return 0;
 
+	void print();
+
 private:
 	// Array
 	Person_t **array;
@@ -63,7 +65,5 @@ private:
 	};
 
 	void incCapacity();
-
-	void print();
 };
 

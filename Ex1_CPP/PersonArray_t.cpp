@@ -8,8 +8,26 @@ PersonArray_t::PersonArray_t()
 }
 
 
+PersonArray_t::PersonArray_t(int minimal_number_of_elements)
+{
+	//TODO
+}
+
+PersonArray_t::PersonArray_t(const PersonArray_t& pr)					// Copy CTOR
+{
+	//TODO
+}
+
+
 PersonArray_t::~PersonArray_t()
 {
+	//TODO
+}
+
+const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			//operator =
+{
+	// TODO
+	return NULL;
 }
 
 void PersonArray_t::insert(Person_t& person){
