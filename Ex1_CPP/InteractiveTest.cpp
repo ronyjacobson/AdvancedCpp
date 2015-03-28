@@ -38,22 +38,22 @@ int main() {
 
 		switch (c) {
 		case 1:
-			//test.insert();	// add function parameters
+			//test.insert();
 			break;
 		case 2:
-			//test.find();	// add function parameters
+			//test.find();
 			break;
 		case 3:
-			//test.remove();	// add function parameters
+			//test.remove();
 			break;
 		case 4:
-			test.print();	// add function parameters
+			test.print();
 			break;
 		case 5:
-			//test.write();	// add function parameters
+			//test.write();
 			break;
 		case 6:
-			test.getSize();	// add function parameters
+			cout << "The size of the array is " << test.getSize() << endl;
 			break;
 		default:
 			cont = false;

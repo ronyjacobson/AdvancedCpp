@@ -56,8 +56,6 @@ private:
 	// Parameters
 	int				m_size;		// Number Of Elements 
 	int				m_capacity;	// Capacity
-	Person_t		m_first;	// First Element
-	Person_t		m_last;		// Last Element
 
 	// Function
 	void incSize() {
