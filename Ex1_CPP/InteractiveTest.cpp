@@ -28,51 +28,51 @@ public:
 		cout << endl;
 	}
 
-	virtual void	insert()	 {
+	virtual void insert() {
 		createPersonFromInput();
 		// Insert person
 		array->insert(*person);
 	}
 
-	virtual void	find()		 {
+	virtual void find() {
 		createNameFromInput();
 		// Find person
 		person_output = array->find(name);
 		cout << "Found person! Name is " << (*person_output).getName() << " and age is " << (*person_output).getAge() << endl << endl;
 	}
 
-	virtual void	remove()	 { 
+	virtual void remove() { 
 		createNameFromInput();
 		array->remove(name);
 		cout << "Person removed!" << endl << endl;
 	}
 
-	virtual void	print()		 { 
+	virtual void print() const{ 
 		array->print();
 	}
 
-	virtual void	capacity()	 { 
+	virtual void capacity() const{ 
 		cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
 	}
 
-	virtual void	removeAll()	 {
+	virtual void removeAll() {
 		array->removeAll();
 		cout << "All people removed!" << endl << endl;
 	}
 
-	virtual void	removeAndDelete()	 { 
+	virtual void removeAndDelete() { 
 		createNameFromInput();
 		// Remove person
 		array->remove(name);
 		cout << "Person removed and deleted!" << endl << endl;
 	}
 
-	virtual void	removeAndDeleteAll()	 { 
+	virtual void removeAndDeleteAll() { 
 		array->removeAndDeleteAll();
 		cout << "All people removed and deleted!" << endl << endl;
 	}
 
-	virtual int	append()	 {
+	virtual int	append() {
 		int i;
 		createPersonFromInput();
 		cout << "Enter index:" << endl;
