@@ -28,7 +28,7 @@ public:
 
 	Person_t& getLast() const;
 
-	Person_t& find(string name) const;
+	const Person_t* find(string name) const;
 
 	void remove(string name);
 
