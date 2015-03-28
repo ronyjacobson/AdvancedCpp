@@ -17,22 +17,22 @@ void PersonArray_t::insert(Person_t& person){
 		incCapacity();
 	}
 	// Insert
-	*(array + getSize()) = person;
+	*(array + getSize()) = &person;
 	incSize();
 };
 
 Person_t& PersonArray_t::getFirst() const{
-	return array[0];
+	return *array[0];
 };
 
 Person_t& PersonArray_t::getLast() const{
-	return array[getSize() - 1];
+	return *array[getSize() - 1];
 };
 
 Person_t& PersonArray_t::find(string name) const{
 	for (int i = 0; i < getSize(); i++){
-		if (array[i].getName == name){
-			return array[i];
+		if ((*array[i]).getName == name){
+			return *array[i];
 		}
 	}
 };

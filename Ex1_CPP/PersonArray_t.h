@@ -27,9 +27,7 @@ public:
 
 	Person_t& getLast() const{};
 
-	Person_t& find(string name) const{
-		// TODO
-	};
+	Person_t& find(string name) const{};
 
 	void remove(string name) {
 		// TODO
@@ -59,7 +57,7 @@ public:
 
 private:
 	// Array
-	Person_t *array = new Person_t[growth_size];
+	Person_t **array = new Person_t*[growth_size];
 	int const growth_size = 16; // Array Growth Size
 
 	// Parameters
