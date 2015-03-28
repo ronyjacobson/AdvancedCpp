@@ -34,6 +34,8 @@ int main() {
 			<< "6 - size" << endl
 			<< "7 - capacity" << endl
 			<< "8 - remove all" << endl
+			<< "9 - remove and delete" << endl
+			<< "10 - remove and delete all" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -86,6 +88,18 @@ int main() {
 		case 8:
 			array->removeAll();
 			cout << "All people removed!" << endl << endl;
+			break;
+		case 9:
+			// Get user input
+			cout << endl << "Enter name:" << endl;
+			cin >> name;
+			// Remove person
+			array->removeAndDelete(name);
+			cout << "Person removed and deleted!" << endl << endl;
+			break;
+		case 10:
+			array->removeAndDeleteAll();
+			cout << "All people removed and deleted!" << endl << endl;
 			break;
 		default:
 			cont = false;

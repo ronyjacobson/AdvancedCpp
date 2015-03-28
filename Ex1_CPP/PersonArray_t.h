@@ -35,7 +35,7 @@ public:
 
 	void removeAndDelete(string name);
 
-	void removeAndDeleteAll(string name);
+	void removeAndDeleteAll();
 
 	void append(int index);
 
