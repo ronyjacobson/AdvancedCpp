@@ -4,6 +4,7 @@
 
 PersonArray_t::PersonArray_t()
 {
+	array = new Person_t*[growth_size];
 }
 
 
@@ -67,13 +68,20 @@ void PersonArray_t::incCapacity() {
 	// Caclculate new capacity
 	int newCapacity = m_capacity + growth_size;
 	// Create a new bigger array
-	Person_t* newArray = new Person_t[newCapacity];
+	Person_t** newArray = new Person_t*[newCapacity];
 	// Copy all old values
-	memcpy(newArray, array, m_capacity * sizeof(Person_t));
+	memcpy(newArray, array, m_capacity * sizeof(Person_t*));
 	// Update capacity
 	m_capacity = newCapacity;
 	// Release old array
 	delete[] array;
 	// Update to new array
 	array = newArray;
+};
+
+void PersonArray_t::print() {
+	// Print the array
+	for (int i = 0; i < getSize(); i++){
+		cout << (*array[i]).getName;
+	}
 };

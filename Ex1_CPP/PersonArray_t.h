@@ -1,5 +1,6 @@
 #pragma once
 #include "Person_t.h"
+#include <iostream>
 using namespace std;
 
 class PersonArray_t
@@ -57,7 +58,7 @@ public:
 
 private:
 	// Array
-	Person_t **array = new Person_t*[growth_size];
+	Person_t **array;
 	int const growth_size = 16; // Array Growth Size
 
 	// Parameters
@@ -72,5 +73,7 @@ private:
 	};
 
 	void incCapacity() {};
+
+	void print(){}
 };
 
