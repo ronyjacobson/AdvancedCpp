@@ -38,12 +38,8 @@ public:
 	void removeAndDeleteAll(string name);
 
 	void append(int index);
-	// TODO
-	// Return element if succeeded and 0 otherwise
 
 	void prepend(int index, Person_t& person);
-	// TODO
-	// Return if succeeds returns 1 if not, return 0;
 
 	void print();
 
@@ -57,8 +53,8 @@ private:
 	int				m_capacity;	// Capacity
 
 	// Copy
-	const PersonArray_t& operator=(const PersonArray_t& pr);//Operator =
-	PersonArray_t(const PersonArray_t& pr);					//Copy CTOR
+	const PersonArray_t& operator=(const PersonArray_t& pr);	//Operator =
+	PersonArray_t(const PersonArray_t& pr);						//Copy CTOR
 
 	// Function
 	void incSize() {
