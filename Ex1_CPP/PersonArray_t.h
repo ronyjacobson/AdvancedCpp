@@ -41,7 +41,7 @@ public:
 
 	int prepend(int i, Person_t& person);
 
-	int PersonArray_t::insertToIndex(int i, Person_t& person) {};
+	int PersonArray_t::insertToIndex(int i, Person_t& person);
 
 	void print();
 

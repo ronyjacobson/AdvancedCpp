@@ -135,12 +135,12 @@ void PersonArray_t::removeAndDeleteAll() {
 
 //append a new element after specific index in array	
 int PersonArray_t::append(int i, Person_t& person) {
-	insertToIndex(i + 1, person);
+	return insertToIndex(i + 1, person);
 };
 
 //prepend a new element before specific index in array
 int PersonArray_t::prepend(int i, Person_t& person) {
-	insertToIndex(i-1 , person);
+	return insertToIndex(i-1 , person);
 
 };
 
