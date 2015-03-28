@@ -140,7 +140,7 @@ int PersonArray_t::append(int i, Person_t& person) {
 
 //prepend a new element before specific index in array
 int PersonArray_t::prepend(int i, Person_t& person) {
-	return insertToIndex(i - 1 , person);
+	return insertToIndex( i , person);
 
 };
 
