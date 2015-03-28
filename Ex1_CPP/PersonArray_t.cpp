@@ -157,8 +157,8 @@ int PersonArray_t::insertToIndex(int i, Person_t& person) {
 
 	if (i != getSize()) {
 		// Shift elements from index i
-		memcpy(array[i + 1],
-			array[i],
+		memcpy(array+(i+1),
+			array+i,
 			(getSize() - i) * sizeof(Person_t*));
 	}
 
