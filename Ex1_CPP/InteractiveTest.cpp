@@ -22,7 +22,6 @@ int main() {
 	bool cont = true;			// trigger to stop loop
 
 	PersonArray_t* array = new PersonArray_t();
-	PersonArray_t test = *array;
 
 	while (cont) {
 		unsigned int c;
@@ -35,25 +34,39 @@ int main() {
 			<< "6 - size" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
+		cout << endl;
+
+		string name;
+		int age;
+		Person_t* person;
 
 		switch (c) {
 		case 1:
-			//test.insert();
+			// Get user input
+			cout << endl << "Enter name:" << endl;
+			cin >> name;
+			cout << "Enter age:" << endl;
+			cin >> age;
+			cout << endl;
+			// Create person
+			person = new Person_t(name, age);
+			// Insert person
+			array->insert(*person);
 			break;
 		case 2:
-			//test.find();
+			//array->find();
 			break;
 		case 3:
-			//test.remove();
+			//array->remove();
 			break;
 		case 4:
-			test.print();
+			array->print();
 			break;
 		case 5:
-			//test.write();
+			//array->write();
 			break;
 		case 6:
-			cout << "The size of the array is " << test.getSize() << endl;
+			cout << "The size of the array is " << array->getSize() << endl << endl;
 			break;
 		default:
 			cont = false;
