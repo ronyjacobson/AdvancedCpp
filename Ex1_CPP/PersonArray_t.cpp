@@ -5,6 +5,8 @@
 PersonArray_t::PersonArray_t()
 {
 	array = new Person_t*[growth_size];
+	m_size = 0;
+	m_capacity = growth_size;
 }
 
 
