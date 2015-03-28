@@ -1,4 +1,5 @@
 #include <iostream>
+#include "PersonArray_t.h"
 using namespace std;
 
 class Test_t {
@@ -11,7 +12,7 @@ public:
 	virtual void	write()		 { }
 	void			size() const { }
 public:
-	int elemCounter;
+	int elemCount;
 };
 
 //==============================================================
@@ -20,11 +21,12 @@ int main() {
 
 	bool cont = true;			// trigger to stop loop
 
-	Test_t test;
+	PersonArray_t* array = new PersonArray_t();
+	PersonArray_t test = *array;
 
 	while (cont) {
 		unsigned int c;
-		cout << "Enter your choise:" << endl
+		cout << "Enter your choice:" << endl
 			<< "1 - insert" << endl
 			<< "2 - find" << endl
 			<< "3 - remove" << endl
@@ -36,22 +38,22 @@ int main() {
 
 		switch (c) {
 		case 1:
-			test.insert();	// add function parameters
+			//test.insert();	// add function parameters
 			break;
 		case 2:
-			test.find();	// add function parameters
+			//test.find();	// add function parameters
 			break;
 		case 3:
-			test.remove();	// add function parameters
+			//test.remove();	// add function parameters
 			break;
 		case 4:
 			test.print();	// add function parameters
 			break;
 		case 5:
-			test.write();	// add function parameters
+			//test.write();	// add function parameters
 			break;
 		case 6:
-			test.size();	// add function parameters
+			test.getSize();	// add function parameters
 			break;
 		default:
 			cont = false;

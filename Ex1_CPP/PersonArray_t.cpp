@@ -8,8 +8,26 @@ PersonArray_t::PersonArray_t()
 }
 
 
+PersonArray_t::PersonArray_t(int minimal_number_of_elements)
+{
+	//TODO
+}
+
+PersonArray_t::PersonArray_t(const PersonArray_t& pr)					// Copy CTOR
+{
+	//TODO
+}
+
+
 PersonArray_t::~PersonArray_t()
 {
+	//TODO
+}
+
+const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			//operator =
+{
+	// TODO
+	return NULL;
 }
 
 void PersonArray_t::insert(Person_t& person){
@@ -30,12 +48,13 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-Person_t& PersonArray_t::find(string name) const{
+const Person_t* PersonArray_t::find(string name) const{
 	for (int i = 0; i < getSize(); i++){
-		if ((*array[i]).getName == name){
-			return *array[i];
+		if ((*array[i]).getName() == name){
+			return array[i];
 		}
 	}
+	return NULL;
 };
 
 void PersonArray_t::remove(string name) {
@@ -82,6 +101,6 @@ void PersonArray_t::incCapacity() {
 void PersonArray_t::print() {
 	// Print the array
 	for (int i = 0; i < getSize(); i++){
-		cout << (*array[i]).getName;
+		cout << (*array[i]).getName();
 	}
 };
