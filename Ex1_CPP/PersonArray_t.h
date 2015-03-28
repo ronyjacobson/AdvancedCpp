@@ -8,9 +8,8 @@ class PersonArray_t
 public:
 	PersonArray_t();										//CTOR
 	PersonArray_t(int minimal_number_of_elements);			//Another CTOR
-	PersonArray_t(const PersonArray_t& pr);					//Copy CTOR
 	~PersonArray_t();										//DTOR
-	const PersonArray_t& operator=(const PersonArray_t& pr);//Operator =
+	
 
 	// Functions
 
@@ -66,6 +65,10 @@ private:
 	int				m_capacity;	// Capacity
 	Person_t		m_first;	// First Element
 	Person_t		m_last;		// Last Element
+
+	// Copy
+	const PersonArray_t& operator=(const PersonArray_t& pr);//Operator =
+	PersonArray_t(const PersonArray_t& pr);					//Copy CTOR
 
 	// Function
 	void incSize() {
