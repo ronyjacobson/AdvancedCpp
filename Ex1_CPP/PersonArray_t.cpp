@@ -58,14 +58,8 @@ bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
 	return true;
 }
 
-void PersonArray_t::insert(Person_t* person){
-	// Chcek if capacity needs to grow
-	if (getSize() >= getCapacity()){
-		incCapacity();
-	}
-	// Insert
-	*(array + getSize()) = person;
-	incSize();
+void PersonArray_t::insert(Person_t& person){
+	insertToIndex(getSize(), person);
 };
 
 Person_t& PersonArray_t::getFirst() const{
