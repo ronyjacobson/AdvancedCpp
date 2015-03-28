@@ -4,15 +4,24 @@
 
 PersonArray_t::PersonArray_t()
 {
+	// Initialize
 	array = new Person_t*[growth_size];
 	m_size = 0;
 	m_capacity = growth_size;
 }
 
 
-PersonArray_t::PersonArray_t(int minimal_number_of_elements)
+PersonArray_t::PersonArray_t(int minimal_number_of_elements)					// CTOR from integer (initial minimal number of elements)
 {
-	//TODO
+	// Initialize
+	array = new Person_t*[growth_size];
+	m_size = 0;
+	m_capacity = growth_size;
+	// Insert new people
+	for (int i = 0; i < minimal_number_of_elements; i++){
+		Person_t* person = new Person_t();
+		insert(*person);
+	}
 }
 
 PersonArray_t::PersonArray_t(const PersonArray_t& pr)							// Copy CTOR
@@ -28,13 +37,15 @@ PersonArray_t::~PersonArray_t()
 	removeAndDeleteAll();
 }
 
-const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			//operator =
+const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			// Operator =
 {
-	// TODO
-	return NULL;
+	array = pr.array;
+	m_size = pr.m_size;
+	m_capacity = pr.m_capacity;
+	return *this;
 }
 
-bool PersonArray_t::operator==(const PersonArray_t& pr)							//operator ==
+bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
 {
 	if (getSize() != pr.getSize() || getCapacity() != pr.getCapacity()){
 		return false;
