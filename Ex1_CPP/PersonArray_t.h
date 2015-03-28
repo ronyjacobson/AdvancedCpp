@@ -54,8 +54,8 @@ private:
 	int				m_size;		// Number Of Elements 
 	int				m_capacity;	// Capacity
 
-	// Copy
 	const PersonArray_t& operator=(const PersonArray_t& pr);	//Operator =
+	bool operator==(const PersonArray_t& pr);					//Operator ==
 	PersonArray_t(const PersonArray_t& pr);						//Copy CTOR
 
 	// Function
