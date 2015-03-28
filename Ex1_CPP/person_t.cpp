@@ -20,7 +20,7 @@ m_id(m_globID++)
 }
 
 
-const Person_t& Person_t::operator=(const Person_t& pr) //operator =
+Person_t& Person_t::operator=(const Person_t& pr) //operator =
 {
 	m_name = pr.m_name;
 	m_age = pr.m_age;
