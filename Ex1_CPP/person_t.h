@@ -9,7 +9,7 @@ public:
 	~Person_t();									//DTOR
 	Person_t(string& name, int age);				//Another CTOR
 	Person_t(const Person_t& pr);					//Copy CTOR
-	const Person_t& operator=(const Person_t& pr);	//Operator =
+	Person_t& operator=(const Person_t& pr);		//Operator =
 	bool operator==(const Person_t& pr);			//Operator ==
 
 	//Setters and Getters
