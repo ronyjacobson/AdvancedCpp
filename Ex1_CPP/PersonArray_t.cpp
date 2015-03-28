@@ -50,7 +50,7 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-const Person_t* PersonArray_t::find(string name) const{
+Person_t* PersonArray_t::find(string name) const{
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]).getName() == name){
 			return array[i];
@@ -60,19 +60,52 @@ const Person_t* PersonArray_t::find(string name) const{
 };
 
 void PersonArray_t::remove(string name) {
-	// TODO
+	for (int i = 0; i < getSize(); i++){
+		if ((*array[i]).getName() == name){
+			// Copy over values
+			memcpy(array[i], array[i+1], (getSize() - i - 1) * sizeof(Person_t*));
+			m_size--;
+			break;
+		}
+	}
 };
 
 void PersonArray_t::removeAll() {
-	// TODO
+	// Update capacity and size
+	m_capacity = growth_size;
+	m_size = 0;
+	// Create a new array
+	Person_t** newArray = new Person_t*[m_capacity];
+	// Update to new array
+	array = newArray;
 };
 
 void PersonArray_t::removeAndDelete(string name) {
-	// TODO
+	for (int i = 0; i < getSize(); i++){
+		if ((*array[i]).getName() == name){
+			// Release value
+			delete array[i];
+			// Copy over values
+			memcpy(array[i], array[i + 1], (getSize() - i - 1) * sizeof(Person_t*));
+			m_size--;
+		}
+	}
 };
 
 void PersonArray_t::removeAndDeleteAll(string name) {
-	// TODO
+	for (int i = 0; i < getSize(); i++){
+		// Release value
+		delete array[i];
+	}
+	// Update capacity and size
+	m_capacity = growth_size;
+	m_size = 0;
+	// Create a new array
+	Person_t** newArray = new Person_t*[m_capacity];
+	// Release old array
+	delete[] array;
+	// Update to new array
+	array = newArray;
 };
 
 void PersonArray_t::append(int index) {
