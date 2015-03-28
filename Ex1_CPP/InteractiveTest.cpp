@@ -55,7 +55,9 @@ public:
 		// Insert person
 		return array->prepend(i, *person);
 	}
-	void			size() const { }
+	void size() const {
+		cout << "The size of the array is " << array->getSize() << endl << endl;
+	}
 
 private:
 	PersonArray_t* array;
@@ -122,7 +124,7 @@ int main() {
 			//array->write();
 			break;
 		case 6:
-			cout << "The size of the array is " << array->getSize() << endl << endl;
+			test.size();
 			break;
 		case 7:
 			cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
