@@ -32,6 +32,12 @@ public:
 	virtual void	remove()	 { }
 	virtual void	print()		 { }
 	virtual void	write()		 { }
+	virtual void	capacity()	 { }
+	virtual void	removeAll()	 { }
+	virtual void	removeAndDelete()	 { }
+	virtual void	removeAndDeleteAll()	 { }
+	virtual void	append()	 { }
+	virtual void	prepend()	 { }
 	void			size() const { }
 
 private:
