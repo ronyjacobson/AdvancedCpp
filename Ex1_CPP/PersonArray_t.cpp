@@ -140,12 +140,12 @@ int PersonArray_t::append(int i, Person_t& person) {
 
 //prepend a new element before specific index in array
 int PersonArray_t::prepend(int i, Person_t& person) {
-	return insertToIndex(i-1 , person);
+	return insertToIndex(i - 1 , person);
 
 };
 
 int PersonArray_t::insertToIndex(int i, Person_t& person) {
-	//Check if index out of bounds
+	//Check if index is out of bounds
 	if ( (i > getSize()) || (i < 0) ) {
 		return 0;
 	}
