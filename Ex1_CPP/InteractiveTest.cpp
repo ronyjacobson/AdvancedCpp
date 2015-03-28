@@ -4,35 +4,42 @@ using namespace std;
 
 class Test_t {
 public:
-	PersonArray_t* array;
-	string name;
-	int age;
-	Person_t* person;
-	int index;
+
 
 	Test_t(){
 		array = new PersonArray_t();
 	}
 
-	virtual void	insert()	 {
+	void createPersonFromInput() {
 		// Get user input
 		cout << endl << "Enter name:" << endl;
 		cin >> name;
 		cout << "Enter age:" << endl;
 		cin >> age;
 		cout << endl;
+
 		// Create person
 		person = new Person_t(name, age);
+	}
+
+	virtual void	insert()	 {
+		createPersonFromInput();
 		// Insert person
 		array->insert(*person);
 	}
+
 	virtual void	find()		 { }
 	virtual void	remove()	 { }
 	virtual void	print()		 { }
 	virtual void	write()		 { }
 	void			size() const { }
-private:
 
+private:
+	PersonArray_t* array;
+	int index;
+	string name;
+	int age;
+	Person_t* person;
 	int elemCount;
 };
 
