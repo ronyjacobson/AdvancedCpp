@@ -35,7 +35,7 @@ public:
 
 	void removeAndDelete(string name);
 
-	void removeAndDeleteAll(string name);
+	void removeAndDeleteAll();
 
 	int append(int i, Person_t& person);
 
