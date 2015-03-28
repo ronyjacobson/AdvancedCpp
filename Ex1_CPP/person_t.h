@@ -36,4 +36,3 @@ private:
 	int					m_age;
 	static size_t		m_globID;	// used to calculate m_id 
 };
-

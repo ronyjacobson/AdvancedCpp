@@ -27,7 +27,7 @@ public:
 
 	Person_t& getLast() const;
 
-	Person_t* find(string name) const;
+	const Person_t* find(string name) const;
 
 	void remove(string name);
 
@@ -37,9 +37,11 @@ public:
 
 	void removeAndDeleteAll(string name);
 
-	void append(int index);
+	int append(int i, Person_t& person);
 
-	void prepend(int index, Person_t& person);
+	int prepend(int i, Person_t& person);
+
+	int PersonArray_t::insertToIndex(int i, Person_t& person) {};
 
 	void print();
 

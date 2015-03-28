@@ -50,7 +50,7 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-Person_t* PersonArray_t::find(string name) const{
+const Person_t* PersonArray_t::find(string name) const{
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]).getName() == name){
 			return array[i];
@@ -108,15 +108,41 @@ void PersonArray_t::removeAndDeleteAll(string name) {
 	array = newArray;
 };
 
-void PersonArray_t::append(int index) {
-	// TODO
-	// Return element if succeeded and 0 otherwise
+//append a new element after specific index in array	
+int PersonArray_t::append(int i, Person_t& person) {
+	insertToIndex(i + 1, person);
 };
 
-void PersonArray_t::prepend(int index, Person_t& person) {
-	// TODO
-	// Return if succeeds returns 1 if not, return 0;
+//prepend a new element before specific index in array
+int PersonArray_t::prepend(int i, Person_t& person) {
+	insertToIndex(i-1 , person);
+
 };
+
+int PersonArray_t::insertToIndex(int i, Person_t& person) {
+	//Check if index out of bounds
+	if ( (i > getSize()) || (i < 0) ) {
+		return 0;
+	}
+
+	// Chcek if capacity needs to grow
+	if (getSize() >= getCapacity()){
+		incCapacity();
+	}
+
+	if (i != getSize()) {
+		// Shift elements from index i
+		memcpy(array[i + 1],
+			array[i],
+			(getSize() - i) * sizeof(Person_t*));
+	}
+
+	// Insert element
+	*(array + i) = &person;
+	incSize();
+	return 1;
+};
+
 
 void PersonArray_t::incCapacity() {
 	// Caclculate new capacity
