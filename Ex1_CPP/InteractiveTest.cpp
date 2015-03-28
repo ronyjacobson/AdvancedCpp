@@ -33,6 +33,7 @@ int main() {
 			<< "5 - write" << endl
 			<< "6 - size" << endl
 			<< "7 - capacity" << endl
+			<< "8 - remove all" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -63,7 +64,12 @@ int main() {
 			cout << "Found person! Name is " << (*person).getName() << " and age is " << (*person).getAge() << endl << endl;
 			break;
 		case 3:
-			//array->remove();
+			// Get user input
+			cout << endl << "Enter name:" << endl;
+			cin >> name;
+			// Remove person
+			array->remove(name);
+			cout << "Person removed!" << endl << endl;
 			break;
 		case 4:
 			array->print();
@@ -76,6 +82,10 @@ int main() {
 			break;
 		case 7:
 			cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
+			break;
+		case 8:
+			array->removeAll();
+			cout << "All people removed!" << endl << endl;
 			break;
 		default:
 			cont = false;

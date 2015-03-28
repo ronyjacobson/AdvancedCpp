@@ -62,8 +62,19 @@ Person_t* PersonArray_t::find(string name) const{
 void PersonArray_t::remove(string name) {
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]).getName() == name){
-			// Copy over values
-			memcpy(array[i], array[i+1], (getSize() - i - 1) * sizeof(Person_t*));
+			// Remove value
+			array[i] = NULL;
+			// Reorder remainig values
+			if (getSize() != 1 && i != getSize() - 1){
+				for (int j = i; j < getSize(); j++){
+					if (j == getSize() - 1){
+						array[j] = NULL;
+					} else {
+						array[j] = array[j + 1];
+					}
+				}
+			}
+			// Update Size
 			m_size--;
 			break;
 		}
