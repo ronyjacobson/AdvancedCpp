@@ -5,8 +5,6 @@
 PersonArray_t::PersonArray_t()
 {
 	array = new Person_t*[growth_size];
-	m_size = 0;
-	m_capacity = growth_size;
 }
 
 
@@ -15,7 +13,7 @@ PersonArray_t::PersonArray_t(int minimal_number_of_elements)
 	//TODO
 }
 
-PersonArray_t::PersonArray_t(const PersonArray_t& pr)							// Copy CTOR
+PersonArray_t::PersonArray_t(const PersonArray_t& pr)					// Copy CTOR
 {
 	//TODO
 }
@@ -103,7 +101,7 @@ void PersonArray_t::incCapacity() {
 void PersonArray_t::print() {
 	// Print the array
 	for (int i = 0; i < getSize(); i++){
-		cout << (*array[i]).getName() << endl;
+		cout << "array[" << i << "]: " ;
+		cout << (*array[i]).getName() << endl << endl;
 	}
-	cout << endl;
 };
