@@ -21,15 +21,6 @@ public:
 		return m_capacity;
 	};
 
-	void incSize() {
-		m_size++;
-	};
-
-	void incCapacity() {
-		m_capacity += growth_size;
-		// TODO reaclloc and copy all
-	};
-
 	void insert(Person_t& person){};
 
 	Person_t& getFirst() const{};
@@ -68,12 +59,20 @@ public:
 
 private:
 	// Array
-	Person_t **array = new Person_t*[growth_size];
+	Person_t *array = new Person_t[growth_size];
 	int const growth_size = 16; // Array Growth Size
 
+	// Parameters
 	int				m_size;		// Number Of Elements 
 	int				m_capacity;	// Capacity
 	Person_t		m_first;	// First Element
 	Person_t		m_last;		// Last Element
+
+	// Function
+	void incSize() {
+		m_size++;
+	};
+
+	void incCapacity() {};
 };
 
