@@ -21,6 +21,13 @@ public:
 		person = new Person_t(name, age);
 	}
 
+	void createNameFromInput() {
+		// Get user input
+		cout << endl << "Enter name:" << endl;
+		cin >> name;
+		cout << endl;
+	}
+
 	virtual void	insert()	 {
 		createPersonFromInput();
 		// Insert person
@@ -28,32 +35,35 @@ public:
 	}
 
 	virtual void	find()		 {
-		createPersonFromInput();
+		createNameFromInput();
 		// Find person
-		person_output = array->find((*person).getName());
+		person_output = array->find(name);
 		cout << "Found person! Name is " << (*person_output).getName() << " and age is " << (*person_output).getAge() << endl << endl;
 	}
 
 	virtual void	remove()	 { 
-		createPersonFromInput();
-		array->remove((*person).getName());
+		createNameFromInput();
+		array->remove(name);
 		cout << "Person removed!" << endl << endl;
 	}
+
 	virtual void	print()		 { 
 		array->print();
 	}
-	virtual int	capacity()	 { 
-		return array->getSize();
+
+	virtual void	capacity()	 { 
+		cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
 	}
 
 	virtual void	removeAll()	 {
 		array->removeAll();
 		cout << "All people removed!" << endl << endl;
 	}
+
 	virtual void	removeAndDelete()	 { 
-		createPersonFromInput();
+		createNameFromInput();
 		// Remove person
-		array->remove((*person).getName());
+		array->remove(name);
 		cout << "Person removed and deleted!" << endl << endl;
 	}
 
@@ -61,9 +71,16 @@ public:
 		array->removeAndDeleteAll();
 		cout << "All people removed and deleted!" << endl << endl;
 	}
-	virtual void	append()	 { }
-	virtual void	prepend()	 { }
-	int			size() const { }
+
+	virtual int	append()	 {
+		int i;
+		createPersonFromInput();
+		cout << "Enter index:" << endl;
+		cin >> i;
+		cout << endl;
+		// Insert person
+		return array->append(i, *person);
+	}
 
 	virtual int	prepend()	 {
 		int i;
@@ -74,6 +91,7 @@ public:
 		// Insert person
 		return array->prepend(i, *person);
 	}
+
 	void size() const {
 		cout << "The size of the array is " << array->getSize() << endl << endl;
 	}
@@ -129,10 +147,10 @@ int main() {
 			test.print();
 			break;
 		case 5:
-			cout << "The size of the array is " << test.size() << endl << endl;
+			test.size();
 			break;
 		case 6:
-			cout << "The capacity of the array is " << test.capacity() << endl << endl;
+			test.capacity();
 			break;
 		case 7:
 			test.removeAll();
@@ -144,13 +162,9 @@ int main() {
 			test.removeAndDeleteAll();
 			break;
 		case 10:
-			array->removeAndDeleteAll();
-			cout << "All people removed and deleted!" << endl << endl;
-			break;
-		case 11:
 			test.append();
 			break;
-		case 12:
+		case 11:
 			test.prepend();
 			break;
 		default:
