@@ -104,6 +104,6 @@ void PersonArray_t::print() {
 	// Print the array
 	for (int i = 0; i < getSize(); i++){
 		cout << "array[" << i << "]: " ;
-		cout << (*array[i]).getName() << endl << endl;
+		cout << (*array[i]).getName() << endl;
 	}
 };
