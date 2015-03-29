@@ -10,7 +10,7 @@ public:
 	Person_t(string& name, int age);				//Another CTOR
 	Person_t(const Person_t& pr);					//Copy CTOR
 	Person_t& operator=(const Person_t& pr);		//Operator =
-	bool operator==(const Person_t& pr);			//Operator ==
+	bool operator==(const Person_t& pr) const;			//Operator ==
 
 	//Setters and Getters
 

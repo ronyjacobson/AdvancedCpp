@@ -21,13 +21,13 @@ public:
 		return m_capacity;
 	};
 
-	void insert(Person_t* person);
+	void insert(Person_t* const person);
 
 	Person_t& getFirst() const;
 
 	Person_t& getLast() const;
 
-	Person_t* find(Person_t person) const;
+	const Person_t* find(Person_t& const person) const;
 
 	void remove(string name);
 
@@ -37,11 +37,11 @@ public:
 
 	void removeAndDeleteAll();
 
-	int append(int i, Person_t& person);
+	int append(int i, Person_t* const person);
 
-	int prepend(int i, Person_t& person);
+	int prepend(int i, Person_t* const person);
 
-	int PersonArray_t::insertToIndex(int i, Person_t& person);
+	int PersonArray_t::insertToIndex(int i, Person_t* const person);
 
 	void print();
 

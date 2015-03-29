@@ -32,7 +32,7 @@ PersonArray_t::PersonArray_t(const PersonArray_t& pr)							// Copy CTOR
 }
 
 
-PersonArray_t::~PersonArray_t()
+PersonArray_t::~PersonArray_t()													//DTOR
 {
 	removeAndDeleteAll();
 }
@@ -58,8 +58,8 @@ bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
 	return true;
 }
 
-void PersonArray_t::insert(Person_t* person){
-	insertToIndex(getSize(), *person);
+void PersonArray_t::insert(Person_t* const person){
+	insertToIndex(getSize(), person);
 };
 
 Person_t& PersonArray_t::getFirst() const{
@@ -70,7 +70,7 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-Person_t* PersonArray_t::find(Person_t person) const{
+const Person_t* PersonArray_t::find(Person_t& const person) const{
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
 			return array[i];
@@ -152,17 +152,17 @@ void PersonArray_t::removeAndDeleteAll() {
 };
 
 //append a new element after specific index in array	
-int PersonArray_t::append(int i, Person_t& person) {
+int PersonArray_t::append(int i, Person_t* const person) {
 	return insertToIndex(i + 1, person);
 };
 
 //prepend a new element before specific index in array
-int PersonArray_t::prepend(int i, Person_t& person) {
-	return insertToIndex( i , person);
+int PersonArray_t::prepend(int i, Person_t* const person) {
+	return insertToIndex(i, person);
 
 };
 
-int PersonArray_t::insertToIndex(int i, Person_t& person) {
+int PersonArray_t::insertToIndex(int i, Person_t* const person) {
 	//Check if index is out of bounds
 	if ( (i > getSize()) || (i < 0) ) {
 		cout << "Error: Index out of bounds!" << endl;
@@ -182,7 +182,7 @@ int PersonArray_t::insertToIndex(int i, Person_t& person) {
 	}
 
 	// Insert element
-	*(array + i) = &person;
+	*(array + i) = person;
 	incSize();
 	return 1;
 };
