@@ -29,11 +29,11 @@ public:
 
 	const Person_t* find(Person_t& const person) const;
 
-	void remove(string name);
+	Person_t*  remove(Person_t& const person);
 
 	void removeAll ();
 
-	void removeAndDelete(string name);
+	void removeAndDelete(Person_t& const person);
 
 	void removeAndDeleteAll();
 
