@@ -79,10 +79,12 @@ const Person_t* PersonArray_t::find(Person_t& const person) const{
 	return NULL;
 };
 
-void PersonArray_t::remove(string name) {
+Person_t* PersonArray_t::remove(Person_t& const person) { 
+	Person_t* pr = 0;
 	for (int i = 0; i < getSize(); i++){
-		if ((*array[i]).getName() == name){
+		if ((*array[i]) == person){
 			// Remove value
+			pr = array[i];
 			array[i] = NULL;
 			// Reorder remainig values
 			if (getSize() != 1 && i != getSize() - 1){
@@ -99,6 +101,7 @@ void PersonArray_t::remove(string name) {
 			break;
 		}
 	}
+	return pr;
 };
 
 void PersonArray_t::removeAll() {
@@ -111,9 +114,9 @@ void PersonArray_t::removeAll() {
 	array = newArray;
 };
 
-void PersonArray_t::removeAndDelete(string name) {
+void PersonArray_t::removeAndDelete(Person_t& const person) {
 	for (int i = 0; i < getSize(); i++){
-		if ((*array[i]).getName() == name){
+		if ((*array[i]) == person){
 			// Remove value
 			delete array[i];
 			array[i] = NULL;
