@@ -134,6 +134,15 @@ public:
 		cout << endl;
 	}
 
+	void empty() const {
+		if (array->isEmpty()) {
+			cout << "Array is empty" << endl << endl;
+		}
+		else {
+			cout << "Array is not empty" << endl << endl;
+		}
+	}
+
 private:
 	PersonArray_t* array;
 	string name;
@@ -168,6 +177,7 @@ int main() {
 			<< "12 - get expand value" << endl
 			<< "13 - get first" << endl
 			<< "14 - get last" << endl
+			<< "15 - is empty" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -216,6 +226,9 @@ int main() {
 			break;
 		case 14:
 			test.last();
+			break;
+		case 15:
+			test.empty();
 			break;
 		default:
 			cont = false;

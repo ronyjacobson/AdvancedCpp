@@ -16,6 +16,10 @@ public:
 	int getSize() const{
 		return m_size;
 	};
+
+	int isEmpty() const{
+		return (m_size==0);
+	};
 	 
 	int getCapacity() const{
 		return m_capacity;
