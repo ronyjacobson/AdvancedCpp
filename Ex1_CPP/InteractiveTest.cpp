@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PersonArray_t.h"
+
 using namespace std;
 
 class Test_t {
@@ -42,8 +43,8 @@ public:
 	}
 
 	virtual void remove() { 
-		createNameFromInput();
-		array->remove(name);
+		createPersonFromInput();
+		array->remove(*person);
 		cout << "Person removed!" << endl << endl;
 	}
 
@@ -61,9 +62,9 @@ public:
 	}
 
 	virtual void removeAndDelete() { 
-		createNameFromInput();
+		createPersonFromInput();
 		// Remove person
-		array->remove(name);
+		array->remove(*person);
 		cout << "Person removed and deleted!" << endl << endl;
 	}
 
@@ -79,7 +80,7 @@ public:
 		cin >> i;
 		cout << endl;
 		// Insert person
-		return array->append(i, *person);
+		return array->append(i, person);
 	}
 
 	virtual int	prepend()	 {
@@ -89,7 +90,7 @@ public:
 		cin >> i;
 		cout << endl;
 		// Insert person
-		return array->prepend(i, *person);
+		return array->prepend(i, person);
 	}
 
 	void size() const {
