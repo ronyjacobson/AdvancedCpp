@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ class Person_t {
 public:
 	Person_t();										//CTOR
 	~Person_t();									//DTOR
-	Person_t(string& name, int age);				//Another CTOR
+	Person_t(const string& name, int age);				//Another CTOR
 	Person_t(const Person_t& pr);					//Copy CTOR
 	Person_t& operator=(const Person_t& pr);		//Operator =
 	bool operator==(const Person_t& pr) const;			//Operator ==
@@ -28,6 +29,14 @@ public:
 
 	int getAge() const {
 		return m_age;
+	};
+
+	void print() const {
+		cout << getName() << ", " << getAge();
+	};
+
+	void println() const {
+		cout << getName() << ", " << getAge() << endl;
 	};
 
 private:

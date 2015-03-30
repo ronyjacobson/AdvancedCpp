@@ -21,19 +21,23 @@ public:
 		return m_capacity;
 	};
 
+	int getExpandValue() const{
+		return m_growthSize;
+	};
+
 	void insert(Person_t* const person);
 
 	Person_t& getFirst() const;
 
 	Person_t& getLast() const;
 
-	const Person_t* find(Person_t& const person) const;
+	const Person_t* find(const Person_t& person) const;
 
-	Person_t*  remove(Person_t& const person);
+	Person_t* remove(const Person_t& person);
 
 	void removeAll ();
 
-	void removeAndDelete(Person_t& const person);
+	int removeAndDelete(const Person_t& person);
 
 	void removeAndDeleteAll();
 
@@ -44,11 +48,13 @@ public:
 	int PersonArray_t::insertToIndex(int i, Person_t* const person);
 
 	void print();
+	
 
 private:
 	// Array
 	Person_t **array;
-	int const growth_size = 16; // Array Growth Size
+
+	int const m_growthSize = 16; // Array Growth Size
 
 	// Parameters
 	int				m_size;		// Number Of Elements 

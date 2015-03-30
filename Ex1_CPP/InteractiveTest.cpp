@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PersonArray_t.h"
+#include "Person_t.h"
 
 using namespace std;
 
@@ -44,8 +45,14 @@ public:
 
 	virtual void remove() { 
 		createPersonFromInput();
-		array->remove(*person);
-		cout << "Person removed!" << endl << endl;
+		Person_t* p = array->remove(*person);
+		if (p != NULL) {
+			cout << "Person ";
+			p->print();
+			cout << " was removed!" << endl << endl;
+		} else {
+			cout << "Error: " <<person->getName() << " is not in the array!" << endl << endl;
+		}
 	}
 
 	virtual void print() const{ 
@@ -64,8 +71,13 @@ public:
 	virtual void removeAndDelete() { 
 		createPersonFromInput();
 		// Remove person
-		array->remove(*person);
-		cout << "Person removed and deleted!" << endl << endl;
+		int deleted = array->removeAndDelete(*person);
+		if (deleted == 1) {
+			cout << "Person removed and deleted!" << endl << endl;
+		}
+		else {
+			cout << "Error: " << person->getName() << " is not in the array!" << endl << endl;
+		}
 	}
 
 	virtual void removeAndDeleteAll() { 
@@ -73,28 +85,53 @@ public:
 		cout << "All people removed and deleted!" << endl << endl;
 	}
 
-	virtual int	append() {
+	virtual void append() {
 		int i;
 		createPersonFromInput();
 		cout << "Enter index:" << endl;
 		cin >> i;
 		cout << endl;
 		// Insert person
-		return array->append(i, person);
+		int ret = array->append(i, person);
+
+		if (ret == 1) {
+			cout << "Person appended!" << endl << endl;
+		}
 	}
 
-	virtual int	prepend()	 {
+	virtual void prepend()	 {
 		int i;
 		createPersonFromInput();
 		cout << "Enter index:" << endl;
 		cin >> i;
 		cout << endl;
 		// Insert person
-		return array->prepend(i, person);
+		// Insert person
+		int ret = array->prepend(i, person);
+
+		if (ret == 1) {
+			cout << "Person prepended!" << endl << endl;
+		}
 	}
 
 	void size() const {
 		cout << "The size of the array is " << array->getSize() << endl << endl;
+	}
+
+	void expandValue() const {
+		cout << "The expand value of the array is " << array->getExpandValue() << endl << endl;
+	}
+
+	void first() const {
+		cout << "array[0]: ";
+		array->getFirst().println();
+		cout << endl;
+	}
+
+	void last() const {
+		cout << "array[" << array->getSize() - 1 << "]: ";
+		array->getLast().println();
+		cout << endl;
 	}
 
 private:
@@ -120,14 +157,17 @@ int main() {
 			<< "1 - insert" << endl
 			<< "2 - find" << endl
 			<< "3 - remove" << endl
-			<< "4 - print" << endl
-			<< "5 - size" << endl
-			<< "6 - capacity" << endl
+			<< "4 - print array" << endl
+			<< "5 - get size" << endl
+			<< "6 - get capacity" << endl
 			<< "7 - remove all" << endl
 			<< "8 - remove and delete" << endl
 			<< "9 - remove and delete all" << endl
 			<< "10 - append" << endl
 			<< "11 - prepend" << endl
+			<< "12 - get expand value" << endl
+			<< "13 - get first" << endl
+			<< "14 - get last" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -168,6 +208,15 @@ int main() {
 		case 11:
 			test.prepend();
 			break;
+		case 12:
+			test.expandValue();
+			break;
+		case 13:
+			test.first();
+			break;
+		case 14:
+			test.last();
+			break;
 		default:
 			cont = false;
 			break;
@@ -176,4 +225,3 @@ int main() {
 
 	return 0;
 }
-

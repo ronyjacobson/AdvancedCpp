@@ -5,23 +5,17 @@
 PersonArray_t::PersonArray_t()
 {
 	// Initialize
-	array = new Person_t*[growth_size];
+	array = new Person_t*[m_growthSize];
 	m_size = 0;
-	m_capacity = growth_size;
+	m_capacity = m_growthSize;
 }
 
 
 PersonArray_t::PersonArray_t(int minimal_number_of_elements)					// CTOR from integer (initial minimal number of elements)
 {
-	// Initialize
-	array = new Person_t*[growth_size];
+	array = new Person_t*[minimal_number_of_elements];
 	m_size = 0;
-	m_capacity = growth_size;
-	// Insert new people
-	for (int i = 0; i < minimal_number_of_elements; i++){
-		Person_t* person = new Person_t();
-		insert(person);
-	}
+	m_capacity = minimal_number_of_elements;
 }
 
 PersonArray_t::PersonArray_t(const PersonArray_t& pr)							// Copy CTOR
@@ -70,7 +64,7 @@ Person_t& PersonArray_t::getLast() const{
 	return *array[getSize() - 1];
 };
 
-const Person_t* PersonArray_t::find(Person_t& const person) const{
+const Person_t* PersonArray_t::find(const Person_t& person) const{
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
 			return array[i];
@@ -79,7 +73,7 @@ const Person_t* PersonArray_t::find(Person_t& const person) const{
 	return NULL;
 };
 
-Person_t* PersonArray_t::remove(Person_t& const person) { 
+Person_t* PersonArray_t::remove(const Person_t& person) {
 	Person_t* pr = 0;
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
@@ -106,7 +100,7 @@ Person_t* PersonArray_t::remove(Person_t& const person) {
 
 void PersonArray_t::removeAll() {
 	// Update capacity and size
-	m_capacity = growth_size;
+	m_capacity = m_growthSize;
 	m_size = 0;
 	// Create a new array
 	Person_t** newArray = new Person_t*[m_capacity];
@@ -114,9 +108,11 @@ void PersonArray_t::removeAll() {
 	array = newArray;
 };
 
-void PersonArray_t::removeAndDelete(Person_t& const person) {
+int PersonArray_t::removeAndDelete(const Person_t& person) {
+	int deleted = 0;
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
+			deleted = 1;
 			// Remove value
 			delete array[i];
 			array[i] = NULL;
@@ -136,6 +132,7 @@ void PersonArray_t::removeAndDelete(Person_t& const person) {
 			break;
 		}
 	}
+	return deleted;
 };
 
 void PersonArray_t::removeAndDeleteAll() {
@@ -144,7 +141,7 @@ void PersonArray_t::removeAndDeleteAll() {
 		delete array[i];
 	}
 	// Update capacity and size
-	m_capacity = growth_size;
+	m_capacity = m_growthSize;
 	m_size = 0;
 	// Create a new array
 	Person_t** newArray = new Person_t*[m_capacity];
@@ -162,7 +159,6 @@ int PersonArray_t::append(int i, Person_t* const person) {
 //prepend a new element before specific index in array
 int PersonArray_t::prepend(int i, Person_t* const person) {
 	return insertToIndex(i, person);
-
 };
 
 int PersonArray_t::insertToIndex(int i, Person_t* const person) {
@@ -193,7 +189,7 @@ int PersonArray_t::insertToIndex(int i, Person_t* const person) {
 
 void PersonArray_t::incCapacity() {
 	// Caclculate new capacity
-	int newCapacity = m_capacity + growth_size;
+	int newCapacity = m_capacity + m_growthSize;
 	// Create a new bigger array
 	Person_t** newArray = new Person_t*[newCapacity];
 	// Copy all old values
@@ -210,6 +206,7 @@ void PersonArray_t::print() {
 	// Print the array
 	for (int i = 0; i < getSize(); i++){
 		cout << "array[" << i << "]: " ;
-		cout << (*array[i]).getName() << endl;
+		array[i]->println();
 	}
+	cout << endl;
 };

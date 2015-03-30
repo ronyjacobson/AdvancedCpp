@@ -7,7 +7,7 @@ Person_t::Person_t() : m_id(m_globID++) {}					// CTOR
 Person_t::~Person_t() {}									// DTOR
 					
 
-Person_t::Person_t(string& name, int age) :					// CTOR by name and age
+Person_t::Person_t(const string& name, int age) :					// CTOR by name and age
 m_id(m_globID++)
 {
 	m_name = name;
