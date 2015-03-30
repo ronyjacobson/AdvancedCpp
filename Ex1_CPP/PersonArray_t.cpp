@@ -39,7 +39,7 @@ const PersonArray_t& PersonArray_t::operator=(const PersonArray_t& pr)			// Oper
 	return *this;
 }
 
-bool PersonArray_t::operator==(const PersonArray_t& pr)							// Operator ==
+bool PersonArray_t::operator==(const PersonArray_t& pr)	const						// Operator ==
 {
 	if (getSize() != pr.getSize() || getCapacity() != pr.getCapacity()){
 		return false;
@@ -65,11 +65,13 @@ Person_t& PersonArray_t::getLast() const{
 };
 
 const Person_t* PersonArray_t::find(const Person_t& person) const{
+	// iterate array to find person
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
 			return array[i];
 		}
 	}
+	// person not found in array
 	return NULL;
 };
 
@@ -202,7 +204,7 @@ void PersonArray_t::incCapacity() {
 	array = newArray;
 };
 
-void PersonArray_t::print() {
+void PersonArray_t::print() const{
 	// Print the array
 	for (int i = 0; i < getSize(); i++){
 		cout << "array[" << i << "]: " ;

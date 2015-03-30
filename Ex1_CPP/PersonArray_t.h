@@ -35,7 +35,7 @@ public:
 
 	Person_t* remove(const Person_t& person);
 
-	void removeAll ();
+	void removeAll();
 
 	int removeAndDelete(const Person_t& person);
 
@@ -45,9 +45,7 @@ public:
 
 	int prepend(int i, Person_t* const person);
 
-	int PersonArray_t::insertToIndex(int i, Person_t* const person);
-
-	void print();
+	void print() const;
 	
 
 private:
@@ -61,7 +59,7 @@ private:
 	int				m_capacity;	// Capacity
 
 	const PersonArray_t& operator=(const PersonArray_t& pr);	//Operator =
-	bool operator==(const PersonArray_t& pr);					//Operator ==
+	bool operator==(const PersonArray_t& pr) const;				//Operator ==
 	PersonArray_t(const PersonArray_t& pr);						//Copy CTOR
 
 	// Function
@@ -70,5 +68,7 @@ private:
 	};
 
 	void incCapacity();
+
+	int PersonArray_t::insertToIndex(int i, Person_t* const person);
 };
 
