@@ -110,7 +110,7 @@ void PersonArray_t::removeAll() {
 	array = newArray;
 };
 
-int PersonArray_t::removeAndDelete(const Person_t& person) {
+int PersonArray_t::removeAndDelete(Person_t& person) {
 	int deleted = 0;
 	for (int i = 0; i < getSize(); i++){
 		if ((*array[i]) == person){
