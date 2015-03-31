@@ -41,7 +41,7 @@ public:
 
 	void removeAll();
 
-	int removeAndDelete(const Person_t& person);
+	int removeAndDelete(Person_t& person);
 
 	void removeAndDeleteAll();
 
