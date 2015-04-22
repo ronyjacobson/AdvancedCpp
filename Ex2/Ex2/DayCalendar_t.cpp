@@ -26,6 +26,7 @@ ostream& operator<<(ostream& os, const DayCalendar_t &calendar){
 	for (list<Meeting_t*>::iterator it = l.begin(); it != l.end(); it++)
 		std::cout << *it << ' ';
 	std::cout << '\n';
+}
 
 
 Meeting_t DayCalendar_t::searchForMeeting(float startTime){
