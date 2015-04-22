@@ -12,7 +12,7 @@ Meeting_t::~Meeting_t()
 {
 }
 
-Meeting_t::Meeting_t(const Meeting_t& pr) :													// Copy CTOR
+Meeting_t::Meeting_t(const Meeting_t& pr)													// Copy CTOR
 {
 	m_start = pr.m_start;
 	m_end = pr.m_end;
@@ -30,6 +30,12 @@ Meeting_t& Meeting_t::operator=(const Meeting_t& pr)										// Operator =
 	return *this;
 }
 
-bool Meeting_t::operator==(const Meeting_t& pr) const{										// Operator ==
-	return (m_start == pr.m_start) && (m_end == pr.m_end) && (m_subject == pr.m_subject);
+bool Meeting_t::operator==(const Meeting_t& pr) const										// Operator == that checks for intersections between meetings
+{										
+	bool ret;
+	ret = ((m_start <= pr.m_start) && (pr.m_start <= m_end));			// Check that the start time of the new meeting is when you have this meeting
+	ret = ret || ((m_start <= pr.m_end) && (pr.m_end <= m_end));		// Check that the end time of the new meeting is when you have this meeting
+	ret = ret || ((pr.m_start <= m_start) && (m_start <= pr.m_end));	// Check that the start time of this meeting is when you have the new meeting
+	ret = ret || ((pr.m_start <= m_end) && (m_end <= pr.m_end));		// Check that the end time of this meeting is when you have the new meeting
+	return ret;
 }
