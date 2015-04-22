@@ -41,8 +41,6 @@ bool Meeting_t::operator==(const Meeting_t& pr) const										// Operator == th
 }
 
 ostream& operator<<(ostream& os, const Meeting_t &meeting){
-	os << "Meeting Subject: " << meeting.getSubject()
-		<< " ,Start Time: " << meeting.getStartTime()
-		<< " ,End Time: " << meeting.getEndTime() << "\n";
+	os << meeting.getStartTime() << "-" << meeting.getEndTime() << " " << meeting.getSubject() << "\n";
 	return os;
 }
