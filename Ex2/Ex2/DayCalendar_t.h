@@ -19,13 +19,7 @@ public:
 	void deleteMeeting(float startTime);
 	Meeting_t* const searchForMeeting(float startTime);
 
-	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar){
-		list<Meeting_t> l = calendar.m_meetingsList;
-		for (list<Meeting_t>::iterator it = l.begin(); it != l.end(); it++)
-			std::cout << *it << ' ';
-		std::cout << '\n';
-		return os;
-	}
+	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
 
 	void print() const {
 		cout << this;
