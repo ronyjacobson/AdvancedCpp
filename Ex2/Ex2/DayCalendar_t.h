@@ -19,7 +19,7 @@ public:
 	virtual void deleteMeeting(float startTime);
 	virtual Meeting_t* const searchForMeeting(float startTime) const;
 
-	virtual friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
+	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
 
 	virtual void print() const {
 		cout << this;

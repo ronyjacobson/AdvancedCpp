@@ -47,7 +47,7 @@ public:
 		cout << getStartTime() << "-" << getEndTime() << " " << getSubject() << endl;
 	};
 
-	virtual friend ostream& operator<<(ostream& os, const Meeting_t &meeting);
+	friend ostream& operator<<(ostream& os, const Meeting_t &meeting);
 
 private:
 	float				m_start;

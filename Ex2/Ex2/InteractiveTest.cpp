@@ -34,21 +34,31 @@ public:
 
 	virtual void insertByDetails() {
 		createMeetingFromInput();
-		// Insert meeting
-		(*calendar).insertMeeting((*meeting).getStartTime(), (*meeting).getEndTime(), (*meeting).getSubject());
+		try {
+			// Insert meeting
+			(*calendar).insertMeeting((*meeting).getStartTime(), (*meeting).getEndTime(), (*meeting).getSubject());
+		}
+		catch (int e) {
+			cout << "An error occurred.\n";
+		}
 	}
 
 	virtual void insertByObject() {
 		createMeetingFromInput();
-		// Insert meeting
-		(*calendar).insertMeeting(*meeting);
+		try {
+			// Insert meeting
+			(*calendar).insertMeeting(*meeting);
+		}
+		catch (int e) {
+			cout << "An error occurred.\n";
+		}
 	}
 
 	virtual void find() {
 		createStartTimeFromInput();
 		// Find meeting
 		try {
-		meeting_output = (*calendar).searchForMeeting(start);
+			meeting_output = (*calendar).searchForMeeting(start);
 			cout << "Found meeting! " << *meeting_output << endl << endl;
 		}
 		catch (int e) {
@@ -101,7 +111,7 @@ private:
 int main() {
 
 	cout << "Your Calandar Program\n=====================\n\n";
-
+	/*
 	DayCalendar_t * dc = new DayCalendar_t();
 	cout << "Calendar created!\n\n";
 
@@ -116,7 +126,7 @@ int main() {
 	(*dc).insertMeeting(*m2);
 	cout << (*dc);
 
-	while (true){};
+	while (true){}; */
 
 	bool cont = true;			// trigger to stop loop
 
