@@ -35,5 +35,8 @@
     <ClCompile Include="MeetingWithLocation_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InteractiveTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

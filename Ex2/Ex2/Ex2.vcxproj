@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DayCalendar_t.cpp" />
+    <ClCompile Include="InteractiveTest.cpp" />
     <ClCompile Include="MeetingWithLocation_t.cpp" />
     <ClCompile Include="Meeting_t.cpp" />
   </ItemGroup>
