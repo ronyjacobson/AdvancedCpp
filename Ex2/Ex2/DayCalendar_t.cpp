@@ -53,4 +53,9 @@ ostream& operator<<(ostream& os, const DayCalendar_t &calendar){
 	return os;
 }
 
+// ========================================================================================== //
+int main(){
+	cout << "hi";
+}
+
 
