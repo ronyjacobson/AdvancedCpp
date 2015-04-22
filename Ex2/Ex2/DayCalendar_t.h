@@ -32,9 +32,16 @@ public:
 	void insertMeeting(float endTime, float startTime);
 	void deleteMeeting(const Meeting_t& meeting);
 	void deleteMeeting(float startTime);
-	void deleteMeeting(float endTime);
+	void searchForMeeting(float startTime);
 	friend ostream& operator<< (ostream& os, const DayCalendar_t& calendar);
 
+	void print() const {
+		cout << this;
+	};
+
+	void println() const {
+		cout << this;
+	};
 
 private:
 	Meeting_t* m_firstMeeting;
