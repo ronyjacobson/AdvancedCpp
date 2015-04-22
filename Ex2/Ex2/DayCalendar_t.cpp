@@ -21,9 +21,17 @@ const DayCalendar_t& DayCalendar_t::operator=(const DayCalendar_t& cal)			// Ope
 {
 }
 
-bool DayCalendar_t::operator==(const DayCalendar_t& cal)	const						// Operator ==
+bool DayCalendar_t::operator==(const DayCalendar_t& cal)	const				// Operator ==
 {
 }
 
-int DayCalendar_t::insertMeeting(Meeting_t* const meeting){
+void DayCalendar_t::insertMeeting(const Meeting_t& meeting){
+};
+void DayCalendar_t::insertMeeting(float endTime, float startTime){
+};
+void DayCalendar_t::deleteMeeting(const Meeting_t& meeting){
+};
+void DayCalendar_t::deleteMeeting(float startTime){
+};
+void DayCalendar_t::deleteMeeting(float endTime){
 };
