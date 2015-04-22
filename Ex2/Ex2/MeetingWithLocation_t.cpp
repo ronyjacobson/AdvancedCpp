@@ -14,7 +14,9 @@ MeetingWithLocation_t::~MeetingWithLocation_t()
 MeetingWithLocation_t::MeetingWithLocation_t(const Meeting_t& pr) : Meeting_t(pr.getStartTime(), pr.getEndTime(), pr.getSubject())	// Copy CTOR
 {
 	if (typeid(&pr) == typeid(MeetingWithLocation_t))
-		m_location = ((MeetingWithLocation_t) pr).getLocation();
+		m_location = ((MeetingWithLocation_t)pr).getLocation();
+	else
+		m_location = "";
 }
 
 
@@ -27,5 +29,7 @@ MeetingWithLocation_t& MeetingWithLocation_t::operator=(const Meeting_t& pr)				
 	setSubject(pr.getSubject());
 	if (typeid(&pr) == typeid(MeetingWithLocation_t))
 		setLocation(((MeetingWithLocation_t)pr).getLocation());
+	else
+		setLocation("");
 	return *this;
 }
