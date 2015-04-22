@@ -33,11 +33,11 @@ public:
 	void deleteMeeting(const Meeting_t& meeting);
 	void deleteMeeting(float startTime);
 	void deleteMeeting(float endTime);
-	friend ostream& operator<< (ostream& os, const DayCalendar_t& calendar);
 
 
 private:
 	Meeting_t* m_firstMeeting;
 	Meeting_t* m_lastMeeting;
 };
+
 
