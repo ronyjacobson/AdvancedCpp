@@ -11,9 +11,13 @@ DayCalendar_t::~DayCalendar_t(){												//DTOR
 }
 DayCalendar_t::DayCalendar_t(const DayCalendar_t& pr){}							//Copy CTOR
 
-const DayCalendar_t& DayCalendar_t::operator=(const DayCalendar_t& pr){}		//Operator =
+const DayCalendar_t& DayCalendar_t::operator=(const DayCalendar_t& pr){			//Operator =
 
-bool DayCalendar_t::operator==(const DayCalendar_t& pr) const{}					//Operator ==
+}
+
+bool DayCalendar_t::operator==(const DayCalendar_t& pr) const{					//Operator ==
+
+}
 
 void DayCalendar_t::insertMeeting(Meeting_t& const meeting){
 	bool canAdd = true;
