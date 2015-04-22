@@ -107,18 +107,6 @@ public:
 		}
 	}
 
-	virtual void removeByObject() {
-		createMeetingFromInput();
-		// remove meeting
-		try {
-			(*calendar).deleteMeeting(meeting);
-			cout << "Meeting deleted!" << endl << endl;
-		}
-		catch (char const* e) {
-			cout << e << endl << endl;
-		}
-	}
-
 	virtual void print() const{
 		(*calendar).println();
 	}
@@ -155,9 +143,8 @@ int main() {
 			<< "2 - insert (by details)" << endl
 			<< "3 - insert with location" << endl
 			<< "4 - remove (by start time)" << endl
-			<< "5 - remove (by object)" << endl
-			<< "6 - search" << endl
-			<< "7 - print" << endl
+			<< "5 - search" << endl
+			<< "6 - print" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -176,12 +163,9 @@ int main() {
 			test.removeByTime();
 			break;
 		case 5:
-			test.removeByObject();
-			break;
-		case 6:
 			test.find();
 			break;
-		case 7:
+		case 6:
 			test.print();
 			break;
 		default:
