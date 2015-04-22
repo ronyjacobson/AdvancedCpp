@@ -18,7 +18,7 @@ public:
 	void insertMeeting(float endTime, float startTime);
 	void deleteMeeting(Meeting_t const meeting);
 	void deleteMeeting(float startTime);
-	Meeting_t& searchForMeeting(float startTime) const;
+	Meeting_t* const searchForMeeting(float startTime) const;
 
 	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
 
