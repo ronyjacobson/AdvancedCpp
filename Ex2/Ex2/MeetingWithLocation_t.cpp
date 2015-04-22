@@ -33,3 +33,8 @@ MeetingWithLocation_t& MeetingWithLocation_t::operator=(const Meeting_t& pr)				
 		setLocation(unknowLocation);
 	return *this;
 }
+
+ostream& operator<<(ostream& os, const MeetingWithLocation_t &meeting){
+	os << meeting.getStartTime() << "-" << meeting.getEndTime() << " " << meeting.getSubject() << ", " << meeting.getLocation();
+	return os;
+}
