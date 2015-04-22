@@ -79,11 +79,20 @@ ostream& operator<<(ostream& os, const DayCalendar_t &calendar){
 // ========================================================================================== //
 int main(){
 
-	cout << "Your Calander Program\n=====================";
+	cout << "Your Calandar Program\n=====================\n\n";
 
 	DayCalendar_t * dc = new DayCalendar_t();
+	cout << "Calendar created!\n\n";
 
-	Meeting_t * m1 = new Meeting_t(1, 2, "hey");
+	Meeting_t * m1 = new Meeting_t(1, 2, "Meeting 1");
+	Meeting_t * m2 = new Meeting_t(4, 6, "Meeting 2");
+	cout << "The following meetings were created:\n";
+	(*m1).println();
+	(*m2).print();
+
+	cout << "\n\nAdding meetings to calendar...\n";
+	(*dc).insertMeeting(*m1);
+	cout << (*dc);
 
 	while (true){};
 }
