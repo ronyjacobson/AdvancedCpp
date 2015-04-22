@@ -7,9 +7,9 @@ using namespace std;
 class DayCalendar_t
 {
 public:
-	DayCalendar_t();										//CTOR
-	~DayCalendar_t();										//DTOR
-	DayCalendar_t(const DayCalendar_t& pr);					//Copy CTOR
+	DayCalendar_t();											//CTOR
+	~DayCalendar_t();											//DTOR
+	DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
 
 	const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
 	bool operator==(const DayCalendar_t& pr) const;				//Operator ==
