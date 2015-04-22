@@ -1,6 +1,7 @@
 #include "Meeting_t.h"
+#include <List>
 #include "DayCalendar_t.h"
-
+using namespace std;
 
 DayCalendar_t::DayCalendar_t(){} 												//CTOR
 
