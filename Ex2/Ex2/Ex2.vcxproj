@@ -65,9 +65,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DayCalendar_t.h" />
+    <ClInclude Include="MeetingWithLocation_t.h" />
+    <ClInclude Include="Meeting_t.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DayCalendar_t.cpp" />
+    <ClCompile Include="MeetingWithLocation_t.cpp" />
+    <ClCompile Include="Meeting_t.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,9 +18,21 @@
     <ClInclude Include="DayCalendar_t.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Meeting_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeetingWithLocation_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DayCalendar_t.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Meeting_t.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeetingWithLocation_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
