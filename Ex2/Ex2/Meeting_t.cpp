@@ -39,3 +39,10 @@ bool Meeting_t::operator==(const Meeting_t& pr) const										// Operator == th
 	ret = ret || ((pr.m_start <= m_end) && (m_end <= pr.m_end));		// Check that the end time of this meeting is when you have the new meeting
 	return ret;
 }
+
+ostream& operator<<(ostream& os, const Meeting_t &meeting){
+	os << "Meeting Subject: " << meeting.getSubject()
+		<< " ,Start Time: " << meeting.getStartTime()
+		<< " ,End Time: " << meeting.getEndTime() << "\n";
+	return os;
+}
