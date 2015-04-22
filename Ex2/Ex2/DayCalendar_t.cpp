@@ -4,10 +4,14 @@
 using namespace std;
 
 DayCalendar_t::DayCalendar_t(){ 												//CTOR
+	m_meetingsList = *(new list<Meeting_t>());
 }
 
 DayCalendar_t::~DayCalendar_t(){												//DTOR
-	
+	for (list<Meeting_t>::const_iterator it = m_meetingsList.begin(); it != m_meetingsList.end(); ++it) {
+		delete(&(*it));
+	}
+	delete(&m_meetingsList);
 }
 DayCalendar_t::DayCalendar_t(const DayCalendar_t& pr){}							//Copy CTOR
 
@@ -74,7 +78,14 @@ ostream& operator<<(ostream& os, const DayCalendar_t &calendar){
 
 // ========================================================================================== //
 int main(){
-	cout << "hi";
+
+	cout << "Your Calander Program\n=====================";
+
+	DayCalendar_t * dc = new DayCalendar_t();
+
+	Meeting_t * m1 = new Meeting_t(1, 2, "hey");
+
+	while (true){};
 }
 
 
