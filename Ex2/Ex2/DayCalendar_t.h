@@ -17,7 +17,7 @@ public:
 	void insertMeeting(float endTime, float startTime);
 	void deleteMeeting(const Meeting_t& meeting);
 	void deleteMeeting(float startTime);
-	void searchForMeeting(float startTime);
+	Meeting_t searchForMeeting(float startTime);
 
 	void print() const {
 		cout << this;
