@@ -65,7 +65,7 @@ public:
 		createMeetingFromInput();
 		try {
 			// Insert meeting
-			(*calendar).insertMeeting(*meeting);
+			(*calendar).insertMeeting(meeting);
 		}
 		catch (char const* e) {
 			cout << e << endl << endl;
@@ -76,7 +76,7 @@ public:
 		createMeetingWithLocationFromInput();
 		try {
 			// Insert meeting
-			(*calendar).insertMeeting(*meetingWithLocation);
+			(*calendar).insertMeeting(meetingWithLocation);
 		}
 		catch (char const* e) {
 			cout << e << endl << endl;
@@ -111,7 +111,7 @@ public:
 		createMeetingFromInput();
 		// remove meeting
 		try {
-			(*calendar).deleteMeeting(*meeting);
+			(*calendar).deleteMeeting(meeting);
 			cout << "Meeting deleted!" << endl << endl;
 		}
 		catch (char const* e) {

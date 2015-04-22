@@ -13,9 +13,9 @@ public:
 	DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
 
 	virtual const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
-	virtual void insertMeeting(Meeting_t& const meeting);
+	virtual void insertMeeting(Meeting_t* const meeting);
 	virtual void insertMeeting(float startTime, float endTime, string& subject);
-	virtual void deleteMeeting(Meeting_t const meeting);
+	virtual void deleteMeeting(Meeting_t* const meeting);
 	virtual void deleteMeeting(float startTime);
 	virtual Meeting_t* const searchForMeeting(float startTime) const;
 
@@ -30,7 +30,7 @@ public:
 	};
 
 private:
-	list<Meeting_t> m_meetingsList;
+	list<Meeting_t*> m_meetingsList;
 };
 
 
