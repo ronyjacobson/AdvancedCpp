@@ -12,7 +12,6 @@ public:
 	DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
 
 	const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
-	bool operator==(const DayCalendar_t& pr) const;				//Operator ==
 	void insertMeeting(Meeting_t& const meeting);
 	void insertMeeting(float startTime, float endTime, string& subject);
 	void insertMeeting(float endTime, float startTime);

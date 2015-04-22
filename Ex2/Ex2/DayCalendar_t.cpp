@@ -12,11 +12,10 @@ DayCalendar_t::~DayCalendar_t(){												//DTOR
 DayCalendar_t::DayCalendar_t(const DayCalendar_t& pr){}							//Copy CTOR
 
 const DayCalendar_t& DayCalendar_t::operator=(const DayCalendar_t& pr){			//Operator =
-
-}
-
-bool DayCalendar_t::operator==(const DayCalendar_t& pr) const{					//Operator ==
-
+	if (this == &pr)  // check for self-assignment by comparing the addresses
+		return *this;
+	m_meetingsList = pr.m_meetingsList;
+	return *this;
 }
 
 void DayCalendar_t::insertMeeting(Meeting_t& const meeting){
