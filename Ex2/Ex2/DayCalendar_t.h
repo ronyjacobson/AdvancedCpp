@@ -48,3 +48,4 @@ private:
 	Meeting_t* m_lastMeeting;
 };
 
+
