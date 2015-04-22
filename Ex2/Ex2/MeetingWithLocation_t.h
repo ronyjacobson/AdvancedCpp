@@ -29,5 +29,6 @@ public:
 
 private:
 	string				m_location;
+	string				unknowLocation = "Unknow Location";
 };
 

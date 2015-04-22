@@ -16,7 +16,7 @@ MeetingWithLocation_t::MeetingWithLocation_t(const Meeting_t& pr) : Meeting_t(pr
 	if (typeid(&pr) == typeid(MeetingWithLocation_t))
 		m_location = ((MeetingWithLocation_t)pr).getLocation();
 	else
-		m_location = "";
+		m_location = unknowLocation;
 }
 
 
@@ -30,6 +30,6 @@ MeetingWithLocation_t& MeetingWithLocation_t::operator=(const Meeting_t& pr)				
 	if (typeid(&pr) == typeid(MeetingWithLocation_t))
 		setLocation(((MeetingWithLocation_t)pr).getLocation());
 	else
-		setLocation("");
+		setLocation(unknowLocation);
 	return *this;
 }
