@@ -32,12 +32,6 @@ public:
 
 private:
 	list<Meeting_t> m_meetingsList;
-
-	bool compare_meetings(const Meeting_t& first, const Meeting_t& second)
-	{
-		return (first.getStartTime < second.getStartTime);
-	}
-
 };
 
 

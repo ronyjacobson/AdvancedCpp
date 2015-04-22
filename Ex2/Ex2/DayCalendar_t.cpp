@@ -23,8 +23,10 @@ void DayCalendar_t::insertMeeting(Meeting_t& const meeting){
 			break;
 		}
 	if (canAdd){
+		// Add the new meeting
 		m_meetingsList.push_back(meeting);
-		m_meetingsList.sort(compare_meetings);
+		// Sort all meetings
+		m_meetingsList.sort([](const Meeting_t& first, const Meeting_t& second) { return (first.getStartTime() < second.getStartTime()); });
 	}
 }
 
