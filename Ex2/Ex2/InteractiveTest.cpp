@@ -32,7 +32,13 @@ public:
 		cout << endl;
 	}
 
-	virtual void insert() {
+	virtual void insertByDetails() {
+		createMeetingFromInput();
+		// Insert meeting
+		(*calendar).insertMeeting((*meeting).getStartTime(), (*meeting).getEndTime(), (*meeting).getSubject());
+	}
+
+	virtual void insertByObject() {
 		createMeetingFromInput();
 		// Insert meeting
 		(*calendar).insertMeeting(*meeting);
@@ -119,21 +125,12 @@ int main() {
 	while (cont) {
 		unsigned int c;
 		cout << "Enter your choice:" << endl
-			<< "1 - insert" << endl
-			<< "2 - find" << endl
-			<< "3 - remove" << endl
-			<< "4 - print array" << endl
-			<< "5 - get size" << endl
-			<< "6 - get capacity" << endl
-			<< "7 - remove all" << endl
-			<< "8 - remove and delete" << endl
-			<< "9 - remove and delete all" << endl
-			<< "10 - append" << endl
-			<< "11 - prepend" << endl
-			<< "12 - get expand value" << endl
-			<< "13 - get first" << endl
-			<< "14 - get last" << endl
-			<< "15 - is empty" << endl
+			<< "1 - insert (by object)" << endl
+			<< "2 - insert (by details)" << endl
+			<< "3 - remove (by start time)" << endl
+			<< "4 - remove (by object)" << endl
+			<< "5 - search" << endl
+			<< "6 - print" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -142,49 +139,22 @@ int main() {
 
 		switch (c) {
 		case 1:
-			test.insert();
+			test.insertByObject();
 			break;
 		case 2:
-			test.find();
+			test.insertByDetails();
 			break;
 		case 3:
-			test.remove();
+			test.removeByTime();
 			break;
 		case 4:
-			test.print();
+			test.removeByObject();
 			break;
 		case 5:
-			test.size();
+			test.find();
 			break;
 		case 6:
-			test.capacity();
-			break;
-		case 7:
-			test.removeAll();
-			break;
-		case 8:
-			test.removeAndDelete();
-			break;
-		case 9:
-			test.removeAndDeleteAll();
-			break;
-		case 10:
-			test.append();
-			break;
-		case 11:
-			test.prepend();
-			break;
-		case 12:
-			test.expandValue();
-			break;
-		case 13:
-			test.first();
-			break;
-		case 14:
-			test.last();
-			break;
-		case 15:
-			test.empty();
+			test.print();
 			break;
 		default:
 			cont = false;

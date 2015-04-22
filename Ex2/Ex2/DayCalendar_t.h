@@ -15,7 +15,6 @@ public:
 	virtual const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
 	virtual void insertMeeting(Meeting_t& const meeting);
 	virtual void insertMeeting(float startTime, float endTime, string& subject);
-	virtual void insertMeeting(float endTime, float startTime);
 	virtual void deleteMeeting(Meeting_t const meeting);
 	virtual void deleteMeeting(float startTime);
 	virtual Meeting_t* const searchForMeeting(float startTime) const;
