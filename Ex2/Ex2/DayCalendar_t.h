@@ -18,7 +18,6 @@ public:
 	void deleteMeeting(const Meeting_t& meeting);
 	void deleteMeeting(float startTime);
 	void searchForMeeting(float startTime);
-	friend ostream& operator<< (ostream& os, const DayCalendar_t& calendar);
 
 	void print() const {
 		cout << this;
