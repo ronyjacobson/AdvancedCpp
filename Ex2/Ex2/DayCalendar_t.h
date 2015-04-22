@@ -14,7 +14,7 @@ public:
 	const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
 	bool operator==(const DayCalendar_t& pr) const;				//Operator ==
 	void insertMeeting(Meeting_t* const meeting);
-	void insertMeeting(float startTime, float endTime);
+	void insertMeeting(float startTime, float endTime, string& subject);
 	void deleteMeeting(Meeting_t* const meeting);
 	void deleteMeeting(float startTime);
 	Meeting_t* const searchForMeeting(float startTime);

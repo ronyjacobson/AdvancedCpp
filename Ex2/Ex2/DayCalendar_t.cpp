@@ -26,7 +26,10 @@ void DayCalendar_t::insertMeeting(Meeting_t* const meeting){
 	}
 }
 
-void DayCalendar_t::insertMeeting(float startTime, float endTime){}
+void DayCalendar_t::insertMeeting(float startTime, float endTime, string& subject){
+	Meeting_t* m = new Meeting_t(startTime, endTime, subject);
+	insertMeeting(m);
+}
 
 void DayCalendar_t::deleteMeeting(Meeting_t* const meeting){
 	m_meetingsList.remove(meeting);
