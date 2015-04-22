@@ -11,142 +11,82 @@ public:
 		calendar = new DayCalendar_t();
 	}
 
-	void createPersonFromInput() {
+	void createMeetingFromInput() {
 		// Get user input
-		cout << endl << "Enter name:" << endl;
-		cin >> name;
-		cout << "Enter age:" << endl;
-		cin >> age;
+		cout << endl << "Enter start time:" << endl;
+		cin >> start;
+		cout << "Enter end time:" << endl;
+		cin >> end;
+		cout << "Enter subject:" << endl;
+		cin >> subject;
 		cout << endl;
 
 		// Create person
-		person = new Person_t(name, age);
+		meeting = new Meeting_t(start, end, subject);
 	}
 
-	void createNameFromInput() {
+	void createStartTimeFromInput() {
 		// Get user input
-		cout << endl << "Enter name:" << endl;
-		cin >> name;
+		cout << endl << "Enter start time:" << endl;
+		cin >> start;
 		cout << endl;
 	}
 
 	virtual void insert() {
-		createPersonFromInput();
-		// Insert person
-		array->insert(person);
+		createMeetingFromInput();
+		// Insert meeting
+		(*calendar).insertMeeting(*meeting);
 	}
 
 	virtual void find() {
-		createPersonFromInput();
-		// Find person
-		person_output = array->find(*person);
-		cout << "Found person! Name is " << (*person_output).getName() << " and age is " << (*person_output).getAge() << endl << endl;
+		createStartTimeFromInput();
+		// Find meeting
+		try {
+		meeting_output = (*calendar).searchForMeeting(start);
+			cout << "Found meeting! " << *meeting_output << endl << endl;
+		}
+		catch (int e) {
+			cout << "An error occurred.\n";
+		}
 	}
 
-	virtual void remove() {
-		createPersonFromInput();
-		Person_t* p = array->remove(*person);
-		if (p != NULL) {
-			cout << "Person ";
-			p->print();
-			cout << " was removed!" << endl << endl;
+	virtual void removeByTime() {
+		createStartTimeFromInput();
+		// remove meeting
+		try {
+			(*calendar).deleteMeeting(start);
+			cout << "Found meeting! " << *meeting_output << endl << endl;
 		}
-		else {
-			cout << "Error: " << person->getName() << " is not in the array!" << endl << endl;
+		catch (int e) {
+			cout << "An error occurred.\n";
+		}
+	}
+
+	virtual void removeByObject() {
+		createMeetingFromInput();
+		// remove meeting
+		try {
+			(*calendar).deleteMeeting(*meeting);
+			cout << "Found meeting! " << *meeting_output << endl << endl;
+		}
+		catch (int e) {
+			cout << "An error occurred.\n";
 		}
 	}
 
 	virtual void print() const{
-		array->print();
-	}
-
-	virtual void capacity() const{
-		cout << "The capacity of the array is " << array->getCapacity() << endl << endl;
-	}
-
-	virtual void removeAll() {
-		array->removeAll();
-		cout << "All people removed!" << endl << endl;
-	}
-
-	virtual void removeAndDelete() {
-		createPersonFromInput();
-		// Remove person
-		int deleted = array->removeAndDelete(*person);
-		if (deleted == 1) {
-			cout << "Person removed and deleted!" << endl << endl;
-		}
-		else {
-			cout << "Error: " << person->getName() << " is not in the array!" << endl << endl;
-		}
-	}
-
-	virtual void removeAndDeleteAll() {
-		array->removeAndDeleteAll();
-		cout << "All people removed and deleted!" << endl << endl;
-	}
-
-	virtual void append() {
-		int i;
-		createPersonFromInput();
-		cout << "Enter index:" << endl;
-		cin >> i;
-		cout << endl;
-		// Insert person
-		int ret = array->append(i, person);
-
-		if (ret == 1) {
-			cout << "Person appended!" << endl << endl;
-		}
-	}
-
-	virtual void prepend()	 {
-		int i;
-		createPersonFromInput();
-		cout << "Enter index:" << endl;
-		cin >> i;
-		cout << endl;
-		// Insert person
-		// Insert person
-		int ret = array->prepend(i, person);
-
-		if (ret == 1) {
-			cout << "Person prepended!" << endl << endl;
-		}
-	}
-
-	void size() const {
-		cout << "The size of the array is " << array->getSize() << endl << endl;
-	}
-
-	void expandValue() const {
-		cout << "The expand value of the array is " << array->getExpandValue() << endl << endl;
-	}
-
-	void first() const {
-		cout << "array[0]: ";
-		array->getFirst().println();
-		cout << endl;
-	}
-
-	void last() const {
-		cout << "array[" << array->getSize() - 1 << "]: ";
-		array->getLast().println();
-		cout << endl;
-	}
-
-	void empty() const {
-		if (array->isEmpty()) {
-			cout << "Array is empty" << endl << endl;
-		}
-		else {
-			cout << "Array is not empty" << endl << endl;
-		}
+		(*calendar).println();
 	}
 
 private:
 	DayCalendar_t* calendar;
 	Meeting_t* meeting;
+
+	float start;
+	float end;
+	string subject;
+
+	Meeting_t* meeting_output;
 
 };
 
