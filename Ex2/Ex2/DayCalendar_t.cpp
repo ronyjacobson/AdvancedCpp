@@ -15,3 +15,11 @@ void DayCalendar_t::insertMeeting(float endTime, float startTime){}
 void DayCalendar_t::deleteMeeting(const Meeting_t& meeting){}
 void DayCalendar_t::deleteMeeting(float startTime){}
 void DayCalendar_t::searchForMeeting(float startTime){}
+
+ostream& operator<<(ostream& os, const DayCalendar_t &calendar){
+	list<Meeting_t*> l = calendar.m_meetingsList;
+	for (list<Meeting_t*>::iterator it = l.begin(); it != l.end(); it++)
+		std::cout << *it << ' ';
+	std::cout << '\n';
+	return os;
+}
