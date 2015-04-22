@@ -1,6 +1,7 @@
 #include "Meeting_t.h"
+#include <List>
 #include "DayCalendar_t.h"
-
+using namespace std;
 
 DayCalendar_t::DayCalendar_t(){ 												//CTOR
 
@@ -14,6 +15,12 @@ void DayCalendar_t::insertMeeting(float endTime, float startTime){}
 void DayCalendar_t::deleteMeeting(const Meeting_t& meeting){}
 void DayCalendar_t::deleteMeeting(float startTime){}
 void DayCalendar_t::deleteMeeting(float endTime){}
-ostream& operator<< (ostream& os, const DayCalendar_t& calendar){
+
+ostream& DayCalendar_t::operator<< (ostream& os, DayCalendar_t& const calendar) {
+	list<Meeting_t> = calendar.m)
+	for (list<Meeting_t>::iterator it = (calendar.m_meetingsList).begin(); it != fifth.end(); it++)
+		std::cout << *it << ' ';
+
+	std::cout << '\n';
 	return os;
 }
