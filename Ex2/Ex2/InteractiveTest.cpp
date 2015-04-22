@@ -1,6 +1,8 @@
 #include <iostream>
 #include "DayCalendar_t.h"
 #include "Meeting_t.h"
+#include "MeetingWithLocation_t.h"
+
 
 using namespace std;
 
@@ -21,8 +23,24 @@ public:
 		cin >> subject;
 		cout << endl;
 
-		// Create person
+		// Create meeting
 		meeting = new Meeting_t(start, end, subject);
+	}
+
+	void createMeetingWithLocationFromInput() {
+		// Get user input
+		cout << endl << "Enter start time:" << endl;
+		cin >> start;
+		cout << "Enter end time:" << endl;
+		cin >> end;
+		cout << "Enter subject:" << endl;
+		cin >> subject;
+		cout << "Enter location:" << endl;
+		cin >> location;
+		cout << endl;
+
+		// Create meeting with location
+		meetingWithLocation = new MeetingWithLocation_t(start, end, subject, location);
 	}
 
 	void createStartTimeFromInput() {
@@ -48,6 +66,17 @@ public:
 		try {
 			// Insert meeting
 			(*calendar).insertMeeting(*meeting);
+		}
+		catch (char const* e) {
+			cout << e << endl << endl;
+		}
+	}
+
+	virtual void insertWithLocation() {
+		createMeetingWithLocationFromInput();
+		try {
+			// Insert meeting
+			(*calendar).insertMeeting(*meetingWithLocation);
 		}
 		catch (char const* e) {
 			cout << e << endl << endl;
@@ -97,12 +126,15 @@ public:
 private:
 	DayCalendar_t* calendar;
 	Meeting_t* meeting;
+	MeetingWithLocation_t* meetingWithLocation;
 
 	float start;
 	float end;
 	string subject;
+	string location;
 
 	Meeting_t* meeting_output;
+	MeetingWithLocation_t* meetingWithLocation_output;
 
 };
 
@@ -111,22 +143,6 @@ private:
 int main() {
 
 	cout << "Your Calandar Program\n=====================\n\n";
-	/*
-	DayCalendar_t * dc = new DayCalendar_t();
-	cout << "Calendar created!\n\n";
-
-	Meeting_t * m1 = new Meeting_t(1, 2, "Meeting 1");
-	Meeting_t * m2 = new Meeting_t(4, 6, "Meeting 2");
-	cout << "The following meetings were created:\n";
-	(*m1).println();
-	(*m2).print();
-
-	cout << "\n\nAdding meetings to calendar...\n";
-	(*dc).insertMeeting(*m1);
-	(*dc).insertMeeting(*m2);
-	cout << (*dc);
-
-	while (true){}; */
 
 	bool cont = true;			// trigger to stop loop
 
@@ -137,15 +153,14 @@ int main() {
 		cout << "Enter your choice:" << endl
 			<< "1 - insert (by object)" << endl
 			<< "2 - insert (by details)" << endl
-			<< "3 - remove (by start time)" << endl
-			<< "4 - remove (by object)" << endl
-			<< "5 - search" << endl
-			<< "6 - print" << endl
+			<< "3 - insert with location" << endl
+			<< "4 - remove (by start time)" << endl
+			<< "5 - remove (by object)" << endl
+			<< "6 - search" << endl
+			<< "7 - print" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
-
-
 
 		switch (c) {
 		case 1:
@@ -155,15 +170,18 @@ int main() {
 			test.insertByDetails();
 			break;
 		case 3:
-			test.removeByTime();
+			test.insertWithLocation();
 			break;
 		case 4:
-			test.removeByObject();
+			test.removeByTime();
 			break;
 		case 5:
-			test.find();
+			test.removeByObject();
 			break;
 		case 6:
+			test.find();
+			break;
+		case 7:
 			test.print();
 			break;
 		default:
