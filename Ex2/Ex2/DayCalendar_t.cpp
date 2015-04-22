@@ -43,6 +43,7 @@ void DayCalendar_t::deleteMeeting(float startTime){
 	Meeting_t* m = searchForMeeting(startTime);
 	if (m != NULL){
 		m_meetingsList.remove(*m);
+		delete(m);
 	} else {
 		throw std::invalid_argument("[ERROR] Trying to delete a non-existing meeting.");
 	}
