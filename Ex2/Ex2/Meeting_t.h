@@ -9,10 +9,10 @@ class Meeting_t
 {
 public:
 	Meeting_t(const float start, const float end, const string& subject);			// CTOR
-	~Meeting_t();																	// DTOR
+	virtual ~Meeting_t();															// DTOR
 	Meeting_t(const Meeting_t& pr);													// Copy CTOR
-	Meeting_t& operator=(const Meeting_t& pr);										// Operator =
-	bool operator==(const Meeting_t& pr) const;										// Operator ==
+	virtual Meeting_t& operator=(const Meeting_t& pr);								// Operator =
+	virtual bool operator==(const Meeting_t& pr) const;								// Operator ==
 
 	//Setters and Getters
 	void setStartTime(const float start){
@@ -39,15 +39,15 @@ public:
 		return m_subject;
 	};
 
-	void print() const {
+	virtual void print() const {
 		cout << getStartTime() << "-" << getEndTime() << " " << getSubject();
 	};
 
-	void println() const {
+	virtual void println() const {
 		cout << getStartTime() << "-" << getEndTime() << " " << getSubject() << endl;
 	};
 
-	friend ostream& operator<<(ostream& os, const Meeting_t &meeting);
+	virtual friend ostream& operator<<(ostream& os, const Meeting_t &meeting);
 
 private:
 	float				m_start;

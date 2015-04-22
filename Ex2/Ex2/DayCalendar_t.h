@@ -8,24 +8,24 @@ class DayCalendar_t
 {
 public:
 	DayCalendar_t();											//CTOR
-	~DayCalendar_t();											//DTOR
+	virtual ~DayCalendar_t();									//DTOR
 	DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
 
-	const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
-	void insertMeeting(Meeting_t& const meeting);
-	void insertMeeting(float startTime, float endTime, string& subject);
-	void insertMeeting(float endTime, float startTime);
-	void deleteMeeting(Meeting_t const meeting);
-	void deleteMeeting(float startTime);
-	Meeting_t* const searchForMeeting(float startTime) const;
+	virtual const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
+	virtual void insertMeeting(Meeting_t& const meeting);
+	virtual void insertMeeting(float startTime, float endTime, string& subject);
+	virtual void insertMeeting(float endTime, float startTime);
+	virtual void deleteMeeting(Meeting_t const meeting);
+	virtual void deleteMeeting(float startTime);
+	virtual Meeting_t* const searchForMeeting(float startTime) const;
 
-	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
+	virtual friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
 
-	void print() const {
+	virtual void print() const {
 		cout << this;
 	};
 
-	void println() const {
+	virtual void println() const {
 		cout << this;
 	};
 

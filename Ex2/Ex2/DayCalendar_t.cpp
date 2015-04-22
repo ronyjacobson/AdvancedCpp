@@ -36,7 +36,7 @@ void DayCalendar_t::insertMeeting(Meeting_t& const meeting){
 		m_meetingsList.sort([](const Meeting_t& first, const Meeting_t& second) { return (first.getStartTime() < second.getStartTime()); });
 	}
 	else {
-		throw std::invalid_argument("[ERROR] Can't add meeting. It intersects with an existing meeting.");
+		throw invalid_argument("[ERROR] Can't add meeting. It intersects with an existing meeting.");
 	}
 }
 
@@ -56,7 +56,7 @@ void DayCalendar_t::deleteMeeting(float startTime){
 		delete(m);
 	} 
 	else {
-		throw std::invalid_argument("[ERROR] Trying to delete a non-existing meeting.");
+		throw invalid_argument("[ERROR] Trying to delete a non-existing meeting.");
 	}
 }
 
