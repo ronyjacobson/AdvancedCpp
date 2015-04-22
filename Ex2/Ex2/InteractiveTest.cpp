@@ -38,8 +38,8 @@ public:
 			// Insert meeting
 			(*calendar).insertMeeting((*meeting).getStartTime(), (*meeting).getEndTime(), (*meeting).getSubject());
 		}
-		catch (int e) {
-			cout << "An error occurred.\n";
+		catch (char const* e) {
+			cout << e << endl << endl;
 		}
 	}
 
@@ -49,8 +49,8 @@ public:
 			// Insert meeting
 			(*calendar).insertMeeting(*meeting);
 		}
-		catch (int e) {
-			cout << "An error occurred.\n";
+		catch (char const* e) {
+			cout << e << endl << endl;
 		}
 	}
 
@@ -61,8 +61,8 @@ public:
 			meeting_output = (*calendar).searchForMeeting(start);
 			cout << "Found meeting! " << *meeting_output << endl << endl;
 		}
-		catch (int e) {
-			cout << "An error occurred.\n";
+		catch (char const* e) {
+			cout << e << endl << endl;
 		}
 	}
 
@@ -71,10 +71,10 @@ public:
 		// remove meeting
 		try {
 			(*calendar).deleteMeeting(start);
-			cout << "Found meeting! " << *meeting_output << endl << endl;
+			cout << "Meeting deleted!" << endl << endl;
 		}
-		catch (int e) {
-			cout << "An error occurred.\n";
+		catch (char const* e) {
+			cout << e << endl << endl;
 		}
 	}
 
@@ -83,10 +83,10 @@ public:
 		// remove meeting
 		try {
 			(*calendar).deleteMeeting(*meeting);
-			cout << "Found meeting! " << *meeting_output << endl << endl;
+			cout << "Meeting deleted!" << endl << endl;
 		}
-		catch (int e) {
-			cout << "An error occurred.\n";
+		catch (char const* e) {
+			cout << e << endl << endl;
 		}
 	}
 

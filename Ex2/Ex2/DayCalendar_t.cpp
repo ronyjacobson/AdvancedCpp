@@ -36,11 +36,14 @@ void DayCalendar_t::insertMeeting(Meeting_t& const meeting){
 		m_meetingsList.sort([](const Meeting_t& first, const Meeting_t& second) { return (first.getStartTime() < second.getStartTime()); });
 	}
 	else {
-		throw invalid_argument("[ERROR] Can't add meeting. It intersects with an existing meeting.");
+		throw "(ERROR) Can\'t add meeting. It intersects with an existing meeting.";
 	}
 }
 
 void DayCalendar_t::insertMeeting(float startTime, float endTime, string& subject){
+	if (startTime > endTime){
+		throw "(ERROR) Bad meeting times. Start time must be lower than end time.";
+	}
 	Meeting_t * m = new Meeting_t(startTime, endTime, subject);
 	insertMeeting(*m);
 }
@@ -53,10 +56,9 @@ void DayCalendar_t::deleteMeeting(float startTime){
 	Meeting_t* m = searchForMeeting(startTime);
 	if (m != NULL){
 		m_meetingsList.remove(*m);
-		delete(m);
 	} 
 	else {
-		throw invalid_argument("[ERROR] Trying to delete a non-existing meeting.");
+		throw "(ERROR) Trying to delete a non-existing meeting.";
 	}
 }
 

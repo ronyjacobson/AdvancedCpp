@@ -22,11 +22,11 @@ public:
 	friend ostream& operator<<(ostream& os, const DayCalendar_t& calendar);
 
 	virtual void print() const {
-		cout << this;
+		cout << *this;
 	};
 
 	virtual void println() const {
-		cout << this;
+		cout << *this << endl;
 	};
 
 private:
