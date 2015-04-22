@@ -10,7 +10,7 @@ class Meeting_t
 public:
 	Meeting_t(const float start, const float end, const string& subject);			// CTOR
 	virtual ~Meeting_t();															// DTOR
-	Meeting_t(const Meeting_t& pr);													// Copy CTOR
+	virtual Meeting_t(const Meeting_t& pr);											// Copy CTOR
 	virtual Meeting_t& operator=(const Meeting_t& pr);								// Operator =
 	virtual bool operator==(const Meeting_t& pr) const;								// Operator ==
 

@@ -9,7 +9,7 @@ class DayCalendar_t
 public:
 	DayCalendar_t();											//CTOR
 	virtual ~DayCalendar_t();									//DTOR
-	DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
+	virtual DayCalendar_t(const DayCalendar_t& pr);						//Copy CTOR
 
 	virtual const DayCalendar_t& operator=(const DayCalendar_t& pr);	//Operator =
 	virtual void insertMeeting(Meeting_t& const meeting);
