@@ -3,14 +3,22 @@
 #include "Meeting_t.h"
 #include "MeetingWithLocation_t.h"
 
-
 using namespace std;
 
 class Test_t {
 public:
 
-	Test_t(){
-		calendar = new DayCalendar_t();
+	Test_t()
+	{
+		calendar = new DayCalendar_t<float>();
+	}
+
+	~Test_t()
+	{
+		if (calendar != NULL)
+		{
+			delete calendar;
+		}
 	}
 
 	void createMeetingFromInput() {
@@ -24,7 +32,7 @@ public:
 		cout << endl;
 
 		// Create meeting
-		meeting = new Meeting_t(start, end, subject);
+		meeting = new Meeting_t<float>(start, end, subject);
 	}
 
 	void createMeetingWithLocationFromInput() {
@@ -40,7 +48,7 @@ public:
 		cout << endl;
 
 		// Create meeting with location
-		meetingWithLocation = new MeetingWithLocation_t(start, end, subject, location);
+		meetingWithLocation = new MeetingWithLocation_t<float>(start, end, subject, location);
 	}
 
 	void createStartTimeFromInput() {
@@ -112,17 +120,17 @@ public:
 	}
 
 private:
-	DayCalendar_t* calendar;
-	Meeting_t* meeting;
-	MeetingWithLocation_t* meetingWithLocation;
+	DayCalendar_t<float>* calendar;
+	Meeting_t<float>* meeting;
+	MeetingWithLocation_t<float>* meetingWithLocation;
 
 	float start;
 	float end;
 	string subject;
 	string location;
 
-	Meeting_t* meeting_output;
-	MeetingWithLocation_t* meetingWithLocation_output;
+	Meeting_t<float>* meeting_output;
+	MeetingWithLocation_t<float>* meetingWithLocation_output;
 
 };
 
@@ -173,6 +181,5 @@ int main() {
 			break;
 		}
 	}
-
 	return 0;
 }
