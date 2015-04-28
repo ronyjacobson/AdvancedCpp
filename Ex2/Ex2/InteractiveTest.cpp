@@ -3,6 +3,8 @@
 #include "Meeting_t.h"
 #include "MeetingWithLocation_t.h"
 
+typedef float default_type;
+
 using namespace std;
 
 class Test_t {
@@ -10,7 +12,7 @@ public:
 
 	Test_t()
 	{
-		calendar = new DayCalendar_t<float>();
+		calendar = new DayCalendar_t<default_type>();
 	}
 
 	~Test_t()
@@ -32,7 +34,7 @@ public:
 		cout << endl;
 
 		// Create meeting
-		meeting = new Meeting_t<float>(start, end, subject);
+		meeting = new Meeting_t<default_type>(start, end, subject);
 	}
 
 	void createMeetingWithLocationFromInput() {
@@ -48,7 +50,7 @@ public:
 		cout << endl;
 
 		// Create meeting with location
-		meetingWithLocation = new MeetingWithLocation_t<float>(start, end, subject, location);
+		meetingWithLocation = new MeetingWithLocation_t<default_type>(start, end, subject, location);
 	}
 
 	void createStartTimeFromInput() {
@@ -120,17 +122,17 @@ public:
 	}
 
 private:
-	DayCalendar_t<float>* calendar;
-	Meeting_t<float>* meeting;
-	MeetingWithLocation_t<float>* meetingWithLocation;
+	DayCalendar_t<default_type>* calendar;
+	Meeting_t<default_type>* meeting;
+	MeetingWithLocation_t<default_type>* meetingWithLocation;
 
-	float start;
-	float end;
+	default_type start;
+	default_type end;
 	string subject;
 	string location;
 
-	Meeting_t<float>* meeting_output;
-	MeetingWithLocation_t<float>* meetingWithLocation_output;
+	Meeting_t<default_type>* meeting_output;
+	MeetingWithLocation_t<default_type>* meetingWithLocation_output;
 
 };
 
