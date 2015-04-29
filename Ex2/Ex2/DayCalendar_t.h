@@ -29,7 +29,7 @@ public:
 		cout << *this << endl;
 	};
 
-private:
+protected:
 	list<Meeting_t<T>*> * m_meetingsListPointer;
 	list<Meeting_t<T>*> m_meetingsList;
 };

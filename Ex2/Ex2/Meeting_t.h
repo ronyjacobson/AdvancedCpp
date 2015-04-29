@@ -20,23 +20,23 @@ public:
 		m_start = start;
 	};
 
-	float getStartTime() const {
+	virtual float getStartTime() const {
 		return m_start;
 	};
 
-	void setEndTime(const float end){
+	virtual void setEndTime(const float end){
 		m_end = end;
 	};
 
-	float getEndTime() const {
+	virtual float getEndTime() const {
 		return m_end;
 	};
 
-	void setSubject(string& subject){
+	virtual void setSubject(string& subject){
 		m_subject = subject;
 	};
 
-	string getSubject() const {
+	virtual string getSubject() const {
 		return m_subject;
 	};
 

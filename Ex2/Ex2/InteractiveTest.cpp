@@ -98,7 +98,11 @@ public:
 		// Find meeting
 		try {
 			meeting_output = (*calendar).searchForMeeting(start);
-			cout << "Found meeting! " << *meeting_output << endl << endl;
+			if (meeting_output != NULL) {
+				cout << "Found meeting!" << *meeting_output << endl << endl;
+			} else {
+				cout << "No such meeting!" << endl << endl;
+			}
 		}
 		catch (char const* e) {
 			cout << e << endl << endl;
