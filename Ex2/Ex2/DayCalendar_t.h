@@ -30,18 +30,21 @@ public:
 	};
 
 private:
+	list<Meeting_t<T>*> * m_meetingsListPointer;
 	list<Meeting_t<T>*> m_meetingsList;
 };
 
 template <class T> DayCalendar_t<T>::DayCalendar_t<T>(){ 												//CTOR
-	m_meetingsList = *(new list<Meeting_t<T>*>());
+	m_meetingsListPointer = new list<Meeting_t<T>*>();
+	m_meetingsList = *(m_meetingsListPointer);
 }
 
 template <class T> DayCalendar_t<T>::~DayCalendar_t<T>(){												//DTOR
-	for (list<Meeting_t<T>*>::const_iterator it = m_meetingsList.begin(); it != m_meetingsList.end(); ++it) {
-		delete(&(*it));
+	while (!m_meetingsList.empty()) {
+		delete m_meetingsList.front();
+		m_meetingsList.pop_front();
 	}
-	delete(&m_meetingsList);
+	delete(m_meetingsListPointer);
 }
 template <class T> DayCalendar_t<T>::DayCalendar_t<T>(const DayCalendar_t& pr){}							//Copy CTOR
 
