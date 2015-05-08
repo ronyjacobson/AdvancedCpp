@@ -8,11 +8,7 @@ using namespace std;
 class Test_t {
 public:
 
-	Test_t()
-	{
-		aIO = new asciiIO_t();
-		bIO = new binIO_t();
-	}
+	Test_t(){}
 
 	~Test_t()
 	{
@@ -39,9 +35,25 @@ public:
 		cout << endl;
 	}
 
+	void createNewDefaultAsciiIO(){
+		aIO = new asciiIO_t();
+	}
+
+	void createNewDefaultBinIO(){
+		bIO = new binIO_t();
+	}
+
+	void createNewAsciiIO(){
+		aIO = new asciiIO_t(path, mode);
+	}
+
+	void createNewBinIO(){
+		bIO = new binIO_t(path, mode);
+	}
+
 private:
-	asciiIO_t aIO;
-	binIO_t bIO;
+	asciiIO_t * aIO;
+	binIO_t * bIO;
 
 	char * path;
 	char * mode;
@@ -60,12 +72,12 @@ int main() {
 	while (cont) {
 		unsigned int c;
 		cout << "Enter your choice:" << endl
-			<< "1 - insert (by object)" << endl
-			<< "2 - insert (by details)" << endl
-			<< "3 - insert with location" << endl
-			<< "4 - remove (by start time)" << endl
-			<< "5 - search" << endl
-			<< "6 - print" << endl
+			<< "1 - get path and mode" << endl
+			<< "2 - create new default ascii IO object" << endl
+			<< "3 - create new default binary IO object" << endl
+			<< "4 - create new ascii IO object" << endl
+			<< "5 - create new binary IO object" << endl
+			<< "6 - run test" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;

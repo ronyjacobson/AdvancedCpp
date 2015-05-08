@@ -39,9 +39,6 @@ public:
 	virtual  virtIO_t& operator<<(const unsigned long& buffer) = 0;
 	virtual  virtIO_t& operator<<(const float& buffer) = 0;
 	virtual  virtIO_t& operator<<(const double& buffer) = 0;
-	
-	virtual virtIO_t& operator<<(const char* buffer) = 0;
-	virtIO_t& operator<<(const void* buffer);
 
 	// operator>> overloads
 	virtual  virtIO_t& operator>>(char& buffer) = 0;
@@ -54,9 +51,6 @@ public:
 	virtual  virtIO_t& operator>>(unsigned long& buffer) = 0;
 	virtual  virtIO_t& operator>>(float& buffer) = 0;
 	virtual  virtIO_t& operator>>(double& buffer) = 0;
-	
-	virtual virtIO_t& operator>>(char* buffer) = 0;
-	virtIO_t& operator>>(void* buffer);
 
 	// Status getter and setter
 	inline fileStatus getStatus()const{
