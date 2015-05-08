@@ -21,9 +21,18 @@
     <ClInclude Include="aciiIO_t .h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="binIO_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="asciiIO_t.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binIO_t.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="virtIO_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
