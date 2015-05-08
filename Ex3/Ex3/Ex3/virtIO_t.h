@@ -19,9 +19,32 @@ public:
 	virtual int getFileLength();
 	virtual size_t read(void* ptr, size_t size, size_t count);
 	virtual size_t write(const void* ptr, size_t size, size_t count);
+	friend virtual ostream operator,(ostream &out, int& len);
+	friend virtual istream& operator,(istream &in, const int& len);
+	// operator<< overloads:
 	friend virtual ostream operator<<(ostream &out, void* buffer);
+	friend virtual ostream operator<<(ostream &out, char input);
+	friend virtual ostream operator<<(ostream &out, unsigned char input);
+	friend virtual ostream operator<<(ostream &out, short input);
+	friend virtual ostream operator<<(ostream &out, unsigned short input);
+	friend virtual ostream operator<<(ostream &out, int input);
+	friend virtual ostream operator<<(ostream &out, unsigned int input);
+	friend virtual ostream operator<<(ostream &out, long input);
+	friend virtual ostream operator<<(ostream &out, unsigned long input);
+	friend virtual ostream operator<<(ostream &out, float input);
+	friend virtual ostream operator<<(ostream &out, double input);
+	// operator>> overloads:
 	friend virtual istream& operator>>(istream &in, const void* buffer);
-
+	friend virtual istream& operator>>(istream &in, char input);
+	friend virtual istream& operator>>(istream &in, unsigned char input);
+	friend virtual istream& operator>>(istream &in, short input);
+	friend virtual istream& operator>>(istream &in, unsigned short input);
+	friend virtual istream& operator>>(istream &in, int input);
+	friend virtual istream& operator>>(istream &in, unsigned int input);
+	friend virtual istream& operator>>(istream &in, long input);
+	friend virtual istream& operator>>(istream &in, unsigned long input);
+	friend virtual istream& operator>>(istream &in, float input);
+	friend virtual istream& operator>>(istream &in, double input);
 private:
 	fstream m_fileStream;
 	ios_base::openmode m_mode;
