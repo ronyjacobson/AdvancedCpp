@@ -1,3 +1,6 @@
+#ifndef BINIO_T_H
+#define BINIO_T_H
+
 #include "virtIO_t.h"
 
 class binIO_t : virtIO_t{
@@ -66,3 +69,5 @@ private:
 	const binIO_t& operator=(const binIO_t& file); //operator =
 	
 };
+
+#endif
