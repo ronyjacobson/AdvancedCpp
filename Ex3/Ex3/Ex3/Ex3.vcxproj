@@ -11,11 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aciiIO_t .h" />
+    <ClInclude Include="asciiIO_t.h" />
+    <ClInclude Include="binIO_t.h" />
     <ClInclude Include="virtIO_t.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="asciiIO_t.cpp" />
+    <ClCompile Include="binIO_t.cpp" />
+    <ClCompile Include="InteractiveTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58B93371-E946-4100-92D1-413B5CA47241}</ProjectGuid>
