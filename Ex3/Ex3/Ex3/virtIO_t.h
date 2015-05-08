@@ -46,10 +46,11 @@ public:
 	friend virtual istream& operator>>(istream &in, float input);
 	friend virtual istream& operator>>(istream &in, double input);
 private:
-	fstream m_fileStream;
-	ios_base::openmode m_mode;
-	unsigned int m_inputOffset;
-	unsigned int m_outputOffset;
+	fstream				m_fileStream;
+	ios_base::openmode	m_mode;
+	unsigned int		m_inputOffset;
+	unsigned int		m_outputOffset;
+	int					m_lenght;
 };
 
 
