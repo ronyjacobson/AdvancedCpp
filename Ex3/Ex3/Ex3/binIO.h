@@ -8,36 +8,30 @@ public:
 	~binIO_t();			//DTOR
 	virtual bool setMode(const char *mode);
 
-	
-	
-
 	// operator<< overloads:
-	using virtIO_t::operator<<;
-	virtual virtIO_t& operator<<(const unsigned char& buf);
-	virtual virtIO_t& operator<<(const char& buf);
-	virtual virtIO_t& operator<<(const unsigned short& buf);
-	virtual virtIO_t& operator<<(const short& buf);
-	virtual virtIO_t& operator<<(const unsigned int& buf);
-	virtual virtIO_t& operator<<(const int& buf);
-	virtual virtIO_t& operator<<(const unsigned long& buf);
-	virtual virtIO_t& operator<<(const long& buf);
-	virtual virtIO_t& operator<<(const double& buf);
-	virtual virtIO_t& operator<<(const float& buf);
-	virtual virtIO_t& operator<<(const char* buf);
+	virtual virtIO_t& operator<<(const char& buffer);
+	virtual virtIO_t& operator<<(const unsigned char& buffer);
+	virtual virtIO_t& operator<<(const short& buffer);
+	virtual virtIO_t& operator<<(const unsigned short& buffer);
+	virtual virtIO_t& operator<<(const int& buffer) = 0;
+	virtual virtIO_t& operator<<(const unsigned int& buffer);
+	virtual virtIO_t& operator<<(const long& buffer) = 0;
+	virtual virtIO_t& operator<<(const unsigned long& buffer);
+	virtual virtIO_t& operator<<(const float& buffer);
+	virtual virtIO_t& operator<<(const double& buffer);
 
 	// operator>> overloads:
 	using virtIO_t::operator>>;
-	virtual virtIO_t& operator>>(unsigned char& buf);
-	virtual virtIO_t& operator>>(char& buf);
-	virtual virtIO_t& operator>>(unsigned short& buf);
-	virtual virtIO_t& operator>>(short& buf);
-	virtual virtIO_t& operator>>(unsigned int& buf);
-	virtual virtIO_t& operator>>(int& buf);
-	virtual virtIO_t& operator>>(unsigned long& buf);
-	virtual virtIO_t& operator>>(long& buf);
-	virtual virtIO_t& operator>>(double& buf);
-	virtual virtIO_t& operator>>(float& buf);
-	virtual virtIO_t& operator>>(char* buf);
+	virtual virtIO_t& operator>>(char& buffer);
+	virtual virtIO_t& operator>>(unsigned char& buffer);
+	virtual virtIO_t& operator>>(short& buffer);
+	virtual virtIO_t& operator>>(unsigned short& buffer);
+	virtual virtIO_t& operator>>(int& buffer);
+	virtual virtIO_t& operator>>(unsigned int& buffer);
+	virtual virtIO_t& operator>>(long& buffer);
+	virtual virtIO_t& operator>>(unsigned long& buffer);
+	virtual virtIO_t& operator>>(float& buffer);
+	virtual virtIO_t& operator>>(double& buffer);
 
 
 private:
