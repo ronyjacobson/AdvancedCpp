@@ -9,8 +9,32 @@ asciiIO_t::asciiIO_t()
 
 asciiIO_t::asciiIO_t(char * path, char * mode) : virtIO_t(path, mode)
 {
-	// No work to do, call parent constructor.
+	// Verify mode:
+	if (mode == NULL)
+	{
+		// TODO: Throw custom exception.
+	}
+
+	if (path == NULL)
+	{
+		// TODO: Throw custom exception.
+	}
+
+	m_path = string(path);
+	m_mode = string(mode);
+	m_file = fopen(m_path.c_str(), m_mode.c_str());
+
+	if (m_file == NULL)
+	{
+		// TODO: Throw custom exception.
+		m_status = virtIO_t::cant_open_file_e;
+	}
+	else
+	{
+		m_status == virtIO_t::ok_e;
+	}
 }
+
 asciiIO_t::~asciiIO_t()
 {
 	// No work to do, call parent destructor.
