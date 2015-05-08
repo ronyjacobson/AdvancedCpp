@@ -18,7 +18,7 @@
     <ClInclude Include="virtIO_t.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aciiIO_t .h">
+    <ClInclude Include="asciiIO_t.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="binIO_t.h">
@@ -29,10 +29,10 @@
     <ClCompile Include="asciiIO_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binIO_t.cpp">
+    <ClCompile Include="virtIO_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="virtIO_t.cpp">
+    <ClCompile Include="binIO_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

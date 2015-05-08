@@ -18,7 +18,7 @@
   <ItemGroup>
     <ClCompile Include="asciiIO_t.cpp" />
     <ClCompile Include="binIO_t.cpp" />
-    <ClCompile Include="InteractiveTest.cpp" />
+    <ClCompile Include="virtIO_t.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58B93371-E946-4100-92D1-413B5CA47241}</ProjectGuid>
