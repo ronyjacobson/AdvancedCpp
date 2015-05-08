@@ -16,7 +16,9 @@ public:
 	~virtIO_t();										// DTOR
 	virtual string getPath();
 	virtual ios_base::openmode getMode();
-	virtual int getFileLenght();
+	virtual int getFileLength();
+	virtual size_t read(void* ptr, size_t size, size_t count);
+	virtual size_t write(const void* ptr, size_t size, size_t count);
 	friend virtual ostream operator<<(ostream &out, void* buffer);
 	friend virtual istream& operator>>(istream &in, const void* buffer);
 

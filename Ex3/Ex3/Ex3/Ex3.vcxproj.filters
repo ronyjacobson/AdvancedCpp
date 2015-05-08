@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="virt_IO_t.h">
+    <ClInclude Include="virtIO_t.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
