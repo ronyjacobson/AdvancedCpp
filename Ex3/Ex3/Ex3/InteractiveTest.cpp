@@ -10,7 +10,7 @@ public:
 
 	Test_t()
 	{
-		aIO = new assciIO_t();
+		aIO = new asciiIO_t();
 		bIO = new binIO_t();
 	}
 
