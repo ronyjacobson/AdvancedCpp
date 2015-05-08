@@ -8,7 +8,10 @@ binIO_t::binIO_t() : virtIO_t(){    //CTOR
 }
 
 binIO_t::binIO_t(const char *pathname, const char *mode) : virtIO_t(){ //name CTOR
-	// No work to do, call parent constructor.
+	char * binaryMode = new char[strlen(mode) + 1];
+	strcpy(binaryMode, mode);
+	strcat(binaryMode, "b");
+	this-> m_mode = binaryMode;
 }
 
 binIO_t::~binIO_t(){			   //DTOR
