@@ -7,15 +7,32 @@ binIO_t::binIO_t(){    //CTOR
 	// No work to do, call parent constructor.
 }
 
-binIO_t::binIO_t(const char *pathname, const char *mode) : virtIO_t(){ //name CTOR
-	char * binaryMode = new char[strlen(mode) + 1];
-	strcpy(binaryMode, mode);
-	strcat(binaryMode, "b");
-	this-> m_mode = binaryMode;
+binIO_t::binIO_t(const char* path, const char * mode) //name CTOR
+{
+	// Verify mode:
+	if (mode == NULL){
+		// TODO: Throw custom exception.
+		return;
+	}
+	if (path == NULL){
+		// TODO: Throw custom exception.
+		return;
+	}
+
+	this->m_path = string(path);
+	this->m_mode = string(mode) + 'b';
+	this->m_file = fopen(m_path.c_str(), m_mode.c_str());
+
+	if (m_file == NULL){
+		// TODO: Throw custom exception.
+		m_status = virtIO_t::cant_open_file_e;
+		return;
+	} else {
+		m_status == virtIO_t::ok_e;
+	}
 }
 
 binIO_t::~binIO_t(){			   //DTOR
-	delete(this-> m_mode);
 }
 
 size_t binIO_t::read(void* ptr, size_t size, size_t count)
