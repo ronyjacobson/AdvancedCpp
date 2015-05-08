@@ -10,6 +10,13 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aciiIO_t .h" />
+    <ClInclude Include="virtIO_t.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="asciiIO_t.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58B93371-E946-4100-92D1-413B5CA47241}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -77,9 +84,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="virt_IO_t.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
