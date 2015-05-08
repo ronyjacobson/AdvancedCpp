@@ -11,11 +11,12 @@ enum FileStatus { ok_e, cant_open_file_e, bad_access_e, writeErr_e, readErr_e };
 class virtIO_t
 {
 public:
-	virtIO_t();
-	virtIO_t(string path, ios_base::openmode mode);
-	~virtIO_t();
-	virtual string GetPath();
-	virtual ios_base::openmode GetMode();
+	virtIO_t();											// CTOR
+	virtIO_t(string path, ios_base::openmode mode);		// Copy CTOR
+	~virtIO_t();										// DTOR
+	virtual string getPath();
+	virtual ios_base::openmode getMode();
+	virtual int getFileLenght();
 	friend virtual ostream operator<<(ostream &out, void* buffer);
 	friend virtual istream& operator>>(istream &in, const void* buffer);
 
