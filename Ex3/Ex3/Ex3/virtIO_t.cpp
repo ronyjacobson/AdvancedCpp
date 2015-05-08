@@ -3,6 +3,8 @@
 // CTOR
 virtIO_t::virtIO_t() {
 	m_path = "./newFile.txt";
+	m_mode = std::ios_base::in;
+	m_fileStream.open(m_path, m_mode);
 }		
 
 // DTOR
