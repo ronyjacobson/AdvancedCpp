@@ -49,7 +49,7 @@ public:
 	friend virtual istream& operator>>(istream &in, float input);
 	friend virtual istream& operator>>(istream &in, double input);
 
-private:
+protected:
 	fstream				m_fileStream;
 	string				m_path;
 	ios_base::openmode	m_mode;
