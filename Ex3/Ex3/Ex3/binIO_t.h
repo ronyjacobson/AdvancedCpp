@@ -3,7 +3,8 @@
 
 #include "virtIO_t.h"
 
-class binIO_t : virtIO_t{
+class binIO_t : virtIO_t
+{
 public:
 
 	binIO_t();			//default CTOR
