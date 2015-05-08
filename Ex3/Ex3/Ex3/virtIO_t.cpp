@@ -1,7 +1,9 @@
 #include "virtIO_t.h"
 
 // CTOR
-virtIO_t::virtIO_t() {}		
+virtIO_t::virtIO_t() {
+	m_path = "./newFile.txt";
+}		
 
 // DTOR
 virtIO_t::~virtIO_t() {
