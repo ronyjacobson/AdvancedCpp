@@ -52,12 +52,6 @@ size_t binIO_t::write(const void* ptr, size_t size, size_t count)
 }
 
 
-bool binIO_t::setMode(const char *mode){
-	char *new_mode = new char[strlen(mode) + 1];
-	strcpy(new_mode, mode);
-	strcat(new_mode, "b");
-}
-
 virtIO_t& binIO_t::operator<<(const unsigned char& buf){
 	return writeTemplate<unsigned char>(buf);
 }
