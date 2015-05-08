@@ -8,7 +8,7 @@ class binIO_t : virtIO_t
 public:
 
 	binIO_t();			//default CTOR
-	binIO_t(const char *pathname, const char* mode); //name CTOR
+	binIO_t::binIO_t(const char* path, const char * mode); //name CTOR
 	~binIO_t();			//DTOR
 	virtual size_t read(void* ptr, size_t size, size_t count);
 	virtual size_t write(const void* ptr, size_t size, size_t count);
