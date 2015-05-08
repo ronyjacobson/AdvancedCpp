@@ -38,7 +38,7 @@ private:
 
 	// Templated write function for output (operator <<)
 	template <class T> binIO_t& writeTemplate(const T& type){
-		if (this->good()) {
+		if (this->getStatus() == virtIO_t::ok_e) {
 			if (fwrite(&type, sizeof(T), 1, mFile) < 1) {
 				mStatus = virtIO_t::writeErr;
 			}
@@ -48,13 +48,13 @@ private:
 
 	// Templated read function for input(operator >>)
 	template <class T>  binIO_t& readTemplate(T& type){
-		if (this->good()) {
-			fread(&type, sizeof(T), 1, mFile);
-			if (feof(mFile)) {
-				mStatus = virtIO_t::readErr_e;
+		if (this->getStatus() == virtIO_t::ok_e) {
+			fread(&type, sizeof(T), 1, m_file);
+			if (feof(m_file)) {
+				m_status = virtIO_t::readErr_e;
 			} else {
-				if (ferror(mFile)) {
-					mStatus = virtIO_t::bad_access_e;
+				if (ferror(m_file)) {
+					m_status = virtIO_t::bad_access_e;
 				}
 			}
 		}
