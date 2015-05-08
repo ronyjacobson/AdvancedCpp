@@ -52,7 +52,7 @@ private:
 			{
 				m_status = virtIO_t::writeErr_e;
 			}
-			fprintf(_file, "%c", ' ');
+			fprintf(m_file, "%c", ' ');
 		}
 		return *this;
 	}
