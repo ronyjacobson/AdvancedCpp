@@ -7,8 +7,8 @@ binIO_t::binIO_t(){    //CTOR
 	// No work to do, call parent constructor.
 }
 
-binIO_t::binIO_t(const char* path, const char * mode) //name CTOR
-{
+binIO_t::binIO_t(const char* path, const char * mode) : virtIO_t(path, mode) //name CTOR
+{ 
 	// Verify mode:
 	if (mode == NULL){
 		// TODO: Throw custom exception.

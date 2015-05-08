@@ -18,6 +18,7 @@
   <ItemGroup>
     <ClCompile Include="asciiIO_t.cpp" />
     <ClCompile Include="binIO_t.cpp" />
+    <ClCompile Include="InteractiveTest.cpp" />
     <ClCompile Include="virtIO_t.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
