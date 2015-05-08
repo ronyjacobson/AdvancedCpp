@@ -15,12 +15,12 @@ public:
 	virtIO_t();											// CTOR
 	virtIO_t(string path, ios_base::openmode mode);		// CTOR By Path And Mode
 	~virtIO_t();										// DTOR
+	virtual bool operator==(const virtIO_t& virtio) const;
 	virtual string getPath();
 	virtual ios_base::openmode getMode();
 	virtual int getFileLength();
 	virtual size_t read(void* ptr, size_t size, size_t count);
 	virtual size_t write(const void* ptr, size_t size, size_t count);
-	virtual bool operator==(const virtIO_t& virtio) const;
 	friend virtual ostream operator,(ostream &out, int& len);
 	friend virtual istream& operator,(istream &in, const int& len);
 	

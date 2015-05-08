@@ -24,3 +24,32 @@ virtIO_t::virtIO_t(string path, ios_base::openmode mode)
 bool virtIO_t::operator==(const virtIO_t& virtio) const{
 	return (m_path == virtio.m_path) && (m_mode == virtio.m_mode);
 }
+
+// Getters
+string virtIO_t::getPath(){
+	return m_path;
+}
+
+ios_base::openmode virtIO_t::getMode(){
+	return m_mode;
+}
+
+int virtIO_t::getFileLength(){
+	return m_lenght;
+}
+
+// IO Operations
+size_t virtIO_t::read(void* ptr, size_t size, size_t count){
+
+}
+size_t virtIO_t::write(const void* ptr, size_t size, size_t count){
+
+}
+
+// IO Operations
+ostream virtIO_t::operator,(ostream &out, int& len){
+
+}
+istream& virtIO_t::operator,(istream &in, const int& len){
+
+}
