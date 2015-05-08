@@ -32,6 +32,12 @@ public:
 		cin >> path;
 		cout << "Enter io mode:" << endl;
 		cin >> mode;
+		cout << "Enter an interger:" << endl;
+		cin >> i;
+		cout << "Enter a float:" << endl;
+		cin >> f;
+		cout << "Enter a name (max length is 16 chars):" << endl;
+		cin >> name;
 		cout << endl;
 	}
 
@@ -51,12 +57,26 @@ public:
 		bIO = new binIO_t(path, mode);
 	}
 
+	void runExampleTest(){
+
+		*aIO << i << ' ' << f;  		// ASCII file ( with blanks )
+		*bIO << i << f;					// Binary file
+		*bIO << name, nameLength;		// both operator -  ',' and  << for 'void*'
+		*bIO >> i >> f;
+	}
+
 private:
+	virtIO_t * vIO;
 	asciiIO_t * aIO;
 	binIO_t * bIO;
 
 	char * path;
 	char * mode;
+
+	int 	i;
+	float 	f;
+	int		nameLength = 16;
+	char 	name[16];
 };
 
 //==============================================================
@@ -84,22 +104,22 @@ int main() {
 
 		switch (c) {
 		case 1:
-			test.insertByObject();
+			test.getInput();
 			break;
 		case 2:
-			test.insertByDetails();
+			test.createNewDefaultAsciiIO();
 			break;
 		case 3:
-			test.insertWithLocation();
+			test.createNewDefaultBinIO();
 			break;
 		case 4:
-			test.removeByTime();
+			test.createNewAsciiIO();
 			break;
 		case 5:
-			test.find();
+			test.createNewBinIO();
 			break;
 		case 6:
-			test.print();
+			test.runExampleTest();
 			break;
 		default:
 			cont = false;
