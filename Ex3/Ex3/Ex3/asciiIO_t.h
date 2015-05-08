@@ -46,12 +46,12 @@ private:
 
 	template <class T> asciiIO_t& writeTemplate(const T& buf, const char* format)
 	{
-		if (this->getStatus() == virtIO_t::ok_e){
-			if (fprintf(_file, format, buf) < 0)
+		if (getStatus() == virtIO_t::ok_e)
+		{
+			if (fprintf(m_file, format, buf) < 0)
 			{
-				_status = virtIO_t::writeErr_e;
+				m_status = virtIO_t::writeErr_e;
 			}
-			//add blanks between fields
 			fprintf(_file, "%c", ' ');
 		}
 		return *this;
@@ -59,10 +59,11 @@ private:
 
 	template <class T> asciiIO_t& readTemplate(T& buf, const char* format)
 	{
-		if (this->getStatus() == virtIO_t::ok_e){
-			if (fscanf(_file, format, &buf) == EOF)
+		if (getStatus() == virtIO_t::ok_e)
+		{
+			if (fscanf(m_file, format, &buf) == EOF)
 			{
-				_status = virtIO_t::readErr_e;
+				m_status = virtIO_t::readErr_e;
 			}
 		}
 		return *this;
