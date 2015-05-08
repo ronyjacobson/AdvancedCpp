@@ -3,7 +3,7 @@
 #include "binIO_t.h"
 using namespace std;
 
-binIO_t::binIO_t() : virtIO_t(){    //CTOR
+binIO_t::binIO_t(){    //CTOR
 	// No work to do, call parent constructor.
 }
 
@@ -15,7 +15,7 @@ binIO_t::binIO_t(const char *pathname, const char *mode) : virtIO_t(){ //name CT
 }
 
 binIO_t::~binIO_t(){			   //DTOR
-	// No work to do, call parent destructor.
+	delete(this-> m_mode);
 }
 
 size_t binIO_t::read(void* ptr, size_t size, size_t count)
