@@ -18,8 +18,8 @@ public:
 	enum fileStatus { ok_e, cant_open_file_e, bad_access_e, writeErr_e, readErr_e };
 
 	// Getters
-	virtual const char * getPath() const;
-	virtual const char * getAccess() const;
+	virtual string getPath() const;
+	virtual string getAccess() const;
 	virtual long getFileLength() const;
 
 	// Operations and operators
@@ -63,8 +63,8 @@ public:
 
 protected:
 	FILE *				m_file;
-	const char *		m_path;
-	const char *		m_mode;
+	string				m_path;
+	string				m_mode;
 	fileStatus			m_status;
 	long				m_lenght;
 };

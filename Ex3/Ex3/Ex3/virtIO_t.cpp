@@ -4,39 +4,51 @@
 virtIO_t::virtIO_t() {
 	m_file = 0;
 	m_path = "";
-	m_mode = 0;
+	m_mode = "";
 	m_status = bad_access_e;
 	m_lenght = 0;
 }		
 
 // DTOR
 virtIO_t::~virtIO_t() {
-	delete m_path;
-	delete m_mode;
 	fclose(m_file);
 }									
 
 // CTOR By path and mode
 virtIO_t::virtIO_t(const char * path, const char * mode)
 {
-	m_path = path;
-	m_mode = mode;
-	m_file = fopen(m_path, m_mode);
+	// Verify mode:
+	if (mode == NULL)
+	{
+		// TODO: Throw custom exception.
+	}
 
-	// Check File Open
-	if (m_file == NULL){
-		m_status = cant_open_file_e;
-	} else {
-		m_status = ok_e;
+	if (path == NULL)
+	{
+		// TODO: Throw custom exception.
+	}
+
+	m_path = string(path);
+	m_mode = string(mode);
+	m_file = fopen(m_path.c_str(), m_mode.c_str());
+
+	if (m_file == NULL)
+	{
+		// TODO: Throw custom exception.
+		m_status = virtIO_t::cant_open_file_e;
+	}
+	else
+	{
+		m_status == virtIO_t::ok_e;
 	}
 }
 
 // Getters
-const char * virtIO_t::getPath() const{
+string virtIO_t::getPath() const{
 	return m_path;
 }
 
-const char * virtIO_t::getAccess() const{
+string virtIO_t::getAccess() const{
 	return m_mode;
 }
 

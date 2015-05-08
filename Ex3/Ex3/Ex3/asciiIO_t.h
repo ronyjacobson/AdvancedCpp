@@ -13,8 +13,8 @@ public:
 	~asciiIO_t();
 	virtual size_t read(void* ptr, size_t size, size_t count);
 	virtual size_t write(const void* ptr, size_t size, size_t count);
-	virtual  virtIO_t& operator<<(const unsigned char& buf);
 
+	// Operator >> overloads:
 	virtual virtIO_t& operator>>(unsigned char& buf);
 	virtual virtIO_t& operator>>(char& buf);
 	virtual virtIO_t& operator>>(unsigned short& buf);
@@ -26,6 +26,7 @@ public:
 	virtual virtIO_t& operator>>(float& buf);
 	virtual virtIO_t& operator>>(double& buf);
 
+	// Operator << overloads:
 	virtual virtIO_t& operator<<(const unsigned char& buf);
 	virtual virtIO_t& operator<<(const char& buf);
 	virtual virtIO_t& operator<<(const unsigned short& buf);
@@ -52,7 +53,6 @@ private:
 			{
 				m_status = virtIO_t::writeErr_e;
 			}
-			fprintf(m_file, "%c", ' ');
 		}
 		return *this;
 	}
@@ -69,6 +69,5 @@ private:
 		return *this;
 	}
 };
-
 
 #endif
