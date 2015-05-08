@@ -6,7 +6,8 @@ public:
 	binIO_t();			//default CTOR
 	binIO_t(const char *pathname, const char* mode); //name CTOR
 	~binIO_t();			//DTOR
-	virtual bool setMode(const char *mode);
+	virtual size_t read(void* ptr, size_t size, size_t count);
+	virtual size_t write(const void* ptr, size_t size, size_t count);
 
 	// operator<< overloads:
 	virtual virtIO_t& operator<<(const char& buffer);

@@ -4,13 +4,53 @@
 using namespace std;
 
 binIO_t::binIO_t() : virtIO_t(){    //CTOR
+	// No work to do, call parent constructor.
 }
 
 binIO_t::binIO_t(const char *pathname, const char *mode) : virtIO_t(){ //name CTOR
+	// No work to do, call parent constructor.
 }
 
 binIO_t::~binIO_t(){			   //DTOR
+	// No work to do, call parent destructor.
 }
+
+size_t binIO_t::read(void* ptr, size_t size, size_t count)
+{
+	if (getStatus() == virtIO_t::ok_e)
+	{
+		size_t n = fread(ptr, size, count, m_file);
+		if (feof(m_file))
+		{
+			m_status = virtIO_t::readErr_e;
+			return 0;
+		}
+		else
+			if (ferror(m_file))
+			{
+				m_status = virtIO_t::bad_access_e;
+				return 0;
+			}
+		return n;
+	}
+	return 0;
+}
+
+size_t binIO_t::write(const void* ptr, size_t size, size_t count)
+{
+	if (getStatus() == ok_e)
+	{
+		size_t n = fwrite(ptr, size, count, m_file);
+		if (n < count)
+		{
+			m_status = virtIO_t::writeErr_e;
+		}
+		else
+			return n;
+	}
+	return 0;
+}
+
 
 bool binIO_t::setMode(const char *mode){
 	char *new_mode = new char[strlen(mode) + 1];
