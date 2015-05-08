@@ -11,6 +11,8 @@ virtIO_t::virtIO_t() {
 
 // DTOR
 virtIO_t::~virtIO_t() {
+	delete m_path;
+	delete m_mode;
 	fclose(m_file);
 }									
 
@@ -21,35 +23,28 @@ virtIO_t::virtIO_t(const char * path, const char * mode)
 	m_mode = mode;
 	m_file = fopen(m_path, m_mode);
 
-	// Check File
-	if (m_file == NULL)
+	// Check File Open
+	if (m_file == NULL){
 		m_status = cant_open_file_e;
-	else
+	} else {
 		m_status = ok_e;
-}
-
-// Operator ==
-bool virtIO_t::operator==(const virtIO_t& virtio) const{
-	return (m_path == virtio.m_path) && (m_mode == virtio.m_mode);
+	}
 }
 
 // Getters
-string virtIO_t::getPath() const{
+const char * virtIO_t::getPath() const{
 	return m_path;
 }
 
-ios_base::openmode virtIO_t::getAccess() const{
+const char * virtIO_t::getAccess() const{
 	return m_mode;
 }
 
-int virtIO_t::getFileLength() const{
+long virtIO_t::getFileLength() const{
 	return m_lenght;
 }
 
-// IO Operations
-ostream virtIO_t::operator,(ostream &out, int& len){
-
-}
-istream& virtIO_t::operator,(istream &in, const int& len){
-
+// Operations and operators
+bool virtIO_t::operator==(const virtIO_t& virtio) const{
+	return (m_path == virtio.m_path) && (m_mode == virtio.m_mode);
 }
