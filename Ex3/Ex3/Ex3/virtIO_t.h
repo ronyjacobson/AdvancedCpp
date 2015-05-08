@@ -21,12 +21,16 @@ public:
 	virtual size_t write(const void* ptr, size_t size, size_t count);
 	friend virtual ostream operator<<(ostream &out, void* buffer);
 	friend virtual istream& operator>>(istream &in, const void* buffer);
+	friend virtual ostream operator,(ostream &out, int& len);
+	friend virtual istream& operator,(istream &in, const int& len);
 
 private:
-	fstream m_fileStream;
-	ios_base::openmode m_mode;
-	unsigned int m_inputOffset;
-	unsigned int m_outputOffset;
+	fstream				m_fileStream;
+	ios_base::openmode	m_mode;
+	unsigned int		m_inputOffset;
+	unsigned int		m_outputOffset;
+	int					m_lenght;
+
 };
 
 
