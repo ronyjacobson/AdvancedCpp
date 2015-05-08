@@ -76,8 +76,6 @@ virtIO_t& asciiIO_t::operator>>(double& buf)
 	return readTemplate<double>(buf, "%lf");
 }
 
-
-
 virtIO_t& asciiIO_t::operator<<(const unsigned char& buf)
 {
 	return writeTemplate<unsigned char>(buf, "%c");
