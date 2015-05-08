@@ -26,14 +26,8 @@ public:
 			delete mode;
 		}
 
-		if (aIO != NULL)
-		{
-			delete aIO;
-		}
-		
-		if (bIO != NULL){
-			delete bIO;
-		}
+		delete aIO;
+		delete bIO;
 	}
 
 	void getInput() {
@@ -45,17 +39,9 @@ public:
 		cout << endl;
 	}
 
-
-	void createStartTimeFromInput() {
-		// Get user input
-		cout << endl << "Enter start time:" << endl;
-		cin >> start;
-		cout << endl;
-	}
-
 private:
 	asciiIO_t aIO;
-	bi_t bIO;
+	binIO_t bIO;
 
 	char * path;
 	char * mode;
