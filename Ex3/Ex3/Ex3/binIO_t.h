@@ -17,9 +17,9 @@ public:
 	virtual virtIO_t& operator<<(const unsigned char& buffer);
 	virtual virtIO_t& operator<<(const short& buffer);
 	virtual virtIO_t& operator<<(const unsigned short& buffer);
-	virtual virtIO_t& operator<<(const int& buffer) = 0;
+	virtual virtIO_t& operator<<(const int& buffer);
 	virtual virtIO_t& operator<<(const unsigned int& buffer);
-	virtual virtIO_t& operator<<(const long& buffer) = 0;
+	virtual virtIO_t& operator<<(const long& buffer);
 	virtual virtIO_t& operator<<(const unsigned long& buffer);
 	virtual virtIO_t& operator<<(const float& buffer);
 	virtual virtIO_t& operator<<(const double& buffer);
