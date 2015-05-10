@@ -10,13 +10,8 @@ binIO_t::binIO_t(){    //CTOR
 binIO_t::binIO_t(const char* path, const char * mode) : virtIO_t(path, mode) //name CTOR
 { 
 	// Verify mode:
-	if (mode == NULL){
-		// TODO: Throw custom exception.
-		return;
-	}
-	if (path == NULL){
-		// TODO: Throw custom exception.
-		return;
+	if (mode == NULL || path == NULL){
+		throw IOCustomException("Error while trying to open file.\n");
 	}
 
 	this->m_path = string(path);

@@ -52,6 +52,7 @@ private:
 			if (fprintf(m_file, format, buf) < 0)
 			{
 				m_status = virtIO_t::writeErr_e;
+				throw IOCustomException("Error while trying to write to file.\n");
 			}
 		}
 		return *this;
@@ -64,6 +65,7 @@ private:
 			if (fscanf(m_file, format, &buf) == EOF)
 			{
 				m_status = virtIO_t::readErr_e;
+				throw IOCustomException("Error while trying to read from file.\n");
 			}
 		}
 		return *this;

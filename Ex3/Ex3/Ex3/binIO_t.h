@@ -46,6 +46,7 @@ private:
 		if (this->getStatus() == virtIO_t::ok_e) {
 			if (fwrite(&type, sizeof(T), 1, mFile) < 1) {
 				mStatus = virtIO_t::writeErr;
+				throw IOCustomException("Error while trying to write to file.\n");
 			}
 		}
 		return *this;
@@ -60,6 +61,7 @@ private:
 			} else {
 				if (ferror(m_file)) {
 					m_status = virtIO_t::bad_access_e;
+					throw IOCustomException("Error while trying to read from file.\n");
 				}
 			}
 		}

@@ -1,4 +1,5 @@
 #include "asciiIO_t.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -10,14 +11,9 @@ asciiIO_t::asciiIO_t()
 asciiIO_t::asciiIO_t(char * path, char * mode) : virtIO_t(path, mode)
 {
 	// Verify mode:
-	if (mode == NULL)
+	if (mode == NULL || path == NULL)
 	{
-		// TODO: Throw custom exception.
-	}
-
-	if (path == NULL)
-	{
-		// TODO: Throw custom exception.
+		throw IOCustomException("NULL argument passed to constructor.\n");
 	}
 
 	m_path = string(path);
@@ -26,8 +22,8 @@ asciiIO_t::asciiIO_t(char * path, char * mode) : virtIO_t(path, mode)
 
 	if (m_file == NULL)
 	{
-		// TODO: Throw custom exception.
 		m_status = virtIO_t::cant_open_file_e;
+		throw IOCustomException("Error while trying to open file.\n");
 	}
 	else
 	{

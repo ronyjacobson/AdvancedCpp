@@ -69,4 +69,18 @@ protected:
 	long				m_lenght;
 };
 
+// Custom Exception
+class IOCustomException
+{
+public:
+	IOCustomException(const string& msg) : m_msg(msg) {}
+	~IOCustomException(){};
+	string ToString() const
+	{
+		return m_msg;
+	}
+private:
+	string m_msg;
+
+};
 #endif
