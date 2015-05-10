@@ -11,7 +11,7 @@ binIO_t::binIO_t(const char* path, const char * mode) : virtIO_t(path, mode) //n
 { 
 	// Verify mode:
 	if (mode == NULL || path == NULL){
-		throw IOCustomException("Error while trying to open file.\n");
+		throw IOCustomException("NULL argument passed to constructor.\n");
 	}
 
 	this->m_path = string(path);
@@ -19,8 +19,8 @@ binIO_t::binIO_t(const char* path, const char * mode) : virtIO_t(path, mode) //n
 	this->m_file = fopen(m_path.c_str(), m_mode.c_str());
 
 	if (m_file == NULL){
-		// TODO: Throw custom exception.
 		m_status = virtIO_t::cant_open_file_e;
+		throw IOCustomException("Error while trying to open file.\n");
 		return;
 	} else {
 		m_status == virtIO_t::ok_e;
