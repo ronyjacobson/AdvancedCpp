@@ -14,6 +14,7 @@ public:
 	virtual size_t write(const void* ptr, size_t size, size_t count);
 
 	// operator<< overloads:
+	using virtIO_t::operator<<;
 	virtual virtIO_t& operator<<(const char& buffer);
 	virtual virtIO_t& operator<<(const unsigned char& buffer);
 	virtual virtIO_t& operator<<(const short& buffer);
@@ -37,7 +38,6 @@ public:
 	virtual virtIO_t& operator>>(unsigned long& buffer);
 	virtual virtIO_t& operator>>(float& buffer);
 	virtual virtIO_t& operator>>(double& buffer);
-
 
 private:
 
