@@ -13,6 +13,7 @@ public:
 	~asciiIO_t();
 
 	// Operator >> overloads:
+	using virtIO_t::operator >>;
 	virtual virtIO_t& operator>>(unsigned char& buf);
 	virtual virtIO_t& operator>>(char& buf);
 	virtual virtIO_t& operator>>(unsigned short& buf);
@@ -25,6 +26,7 @@ public:
 	virtual virtIO_t& operator>>(double& buf);
 
 	// Operator << overloads:
+	using virtIO_t::operator<<;
 	virtual virtIO_t& operator<<(const unsigned char& buf);
 	virtual virtIO_t& operator<<(const char& buf);
 	virtual virtIO_t& operator<<(const unsigned short& buf);
@@ -35,8 +37,6 @@ public:
 	virtual virtIO_t& operator<<(const long& buf);
 	virtual virtIO_t& operator<<(const float& buf);
 	virtual virtIO_t& operator<<(const double& buf);
-	using virtIO_t::operator<<;
-	using virtIO_t::operator >>;
 
 private:
 	asciiIO_t(const asciiIO_t& obj); // Copy CTOR
