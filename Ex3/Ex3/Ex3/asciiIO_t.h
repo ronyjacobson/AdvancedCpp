@@ -11,8 +11,6 @@ public:
 	asciiIO_t();
 	asciiIO_t(char * path, char * mode);
 	~asciiIO_t();
-	virtual size_t read(void* ptr, size_t size, size_t count);
-	virtual size_t write(const void* ptr, size_t size, size_t count);
 
 	// Operator >> overloads:
 	virtual virtIO_t& operator>>(unsigned char& buf);
@@ -62,7 +60,7 @@ private:
 	{
 		if (getStatus() == virtIO_t::ok_e)
 		{
-			if (fscanf(m_file, format, &buf) == EOF)
+			if (fscanf_s(m_file, format, &buf) == EOF)
 			{
 				m_status = virtIO_t::readErr_e;
 				throw IOCustomException("Error while trying to read from file.\n");

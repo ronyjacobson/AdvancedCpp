@@ -8,7 +8,6 @@ using namespace std;
 
 class virtIO_t
 {
-
 public:
 	virtIO_t();											// CTOR
 	virtIO_t(const char * path, const char * mode);		// CTOR By Path And Mode
@@ -16,19 +15,22 @@ public:
 
 	// File Status Enum
 	enum fileStatus { ok_e, cant_open_file_e, bad_access_e, writeErr_e, readErr_e };
-
+	
+	// IOOperation Enum
+	enum IOOperation { read, write, uninitialized };
+	
 	// Getters
 	virtual string getPath() const;
 	virtual string getAccess() const;
 	virtual long getFileLength() const;
 
 	// Operations and operators
-	virtual size_t read(void* ptr, size_t size, size_t count);
-	virtual size_t write(const void* ptr, size_t size, size_t count);
 	virtual bool operator==(const virtIO_t& virtio) const;
 	virtual virtIO_t& operator,(int len);
 
 	// operator<< overloads
+	virtIO_t& operator<<(const void* buffer);
+	//virtual virtIO_t& operator<<(const char* buffer) = 0;
 	virtual  virtIO_t& operator<<(const char& buffer) = 0;
 	virtual  virtIO_t& operator<<(const unsigned char& buffer) = 0;
 	virtual  virtIO_t& operator<<(const short& buffer) = 0;
@@ -41,6 +43,8 @@ public:
 	virtual  virtIO_t& operator<<(const double& buffer) = 0;
 
 	// operator>> overloads
+	virtIO_t& operator>>(void* buffer);
+	//virtual virtIO_t& operator>>(char* buffer) = 0;
 	virtual  virtIO_t& operator>>(char& buffer) = 0;
 	virtual  virtIO_t& operator>>(unsigned char& buffer) = 0;
 	virtual  virtIO_t& operator>>(short& buffer) = 0;
@@ -61,12 +65,19 @@ public:
 		m_status = status;
 	}
 
+
+
 protected:
 	FILE *				m_file;
 	string				m_path;
 	string				m_mode;
 	fileStatus			m_status;
 	long				m_lenght;
+	const void *		m_inputBuffer;
+	void *				m_outputBuffer;
+	IOOperation			m_op;
+	virtual size_t readFromFile(int length);
+	virtual size_t writeToFile(int length);
 };
 
 // Custom Exception

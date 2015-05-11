@@ -18,9 +18,10 @@ asciiIO_t::asciiIO_t(char * path, char * mode) : virtIO_t(path, mode)
 
 	m_path = string(path);
 	m_mode = string(mode);
-	m_file = fopen(m_path.c_str(), m_mode.c_str());
+	errno_t errorCode = fopen_s(&m_file, m_path.c_str(), m_mode.c_str());
+	m_op = IOOperation::uninitialized;
 
-	if (m_file == NULL)
+	if (m_file == NULL || errorCode != 0)
 	{
 		m_status = virtIO_t::cant_open_file_e;
 		throw IOCustomException("Error while trying to open file.\n");
@@ -36,42 +37,6 @@ asciiIO_t::~asciiIO_t()
 	// No work to do, call parent destructor.
 }
 
-size_t asciiIO_t::read(void* ptr, size_t size, size_t count)
-{
-	if (getStatus() == virtIO_t::ok_e)
-	{
-		size_t n = fread(ptr, size, count, m_file);
-		if (feof(m_file))
-		{
-			m_status = virtIO_t::readErr_e;
-			return 0;
-		}
-		else
-			if (ferror(m_file))
-			{
-				m_status = virtIO_t::bad_access_e;
-				return 0;
-			}
-		return n;
-	}
-	return 0;
-}
-
-size_t asciiIO_t::write(const void* ptr, size_t size, size_t count)
-{
-	if (getStatus() == ok_e)
-	{
-		size_t n = fwrite(ptr, size, count, m_file);
-		if (n < count)
-		{
-			m_status = virtIO_t::writeErr_e;
-		}
-		else
-			return n;
-	}
-	return 0;
-}
-
 virtIO_t& asciiIO_t::operator>>(unsigned char& buf)
 {
 	return readTemplate<unsigned char>(buf, "%c");
@@ -79,7 +44,7 @@ virtIO_t& asciiIO_t::operator>>(unsigned char& buf)
 
 virtIO_t& asciiIO_t::operator>>(char& buf)
 {
-	return readTemplate<char>(buf, "%hhd");
+	return readTemplate<char>(buf, "%c");
 }
 
 virtIO_t& asciiIO_t::operator>>(unsigned short& buf)

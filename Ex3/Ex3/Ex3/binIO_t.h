@@ -44,8 +44,8 @@ private:
 	// Templated write function for output (operator <<)
 	template <class T> binIO_t& writeTemplate(const T& type){
 		if (this->getStatus() == virtIO_t::ok_e) {
-			if (fwrite(&type, sizeof(T), 1, mFile) < 1) {
-				mStatus = virtIO_t::writeErr;
+			if (fwrite(&type, sizeof(T), 1, m_file) < 1) {
+				m_status = virtIO_t::writeErr_e;
 				throw IOCustomException("Error while trying to write to file.\n");
 			}
 		}

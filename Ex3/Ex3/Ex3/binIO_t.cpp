@@ -16,9 +16,9 @@ binIO_t::binIO_t(const char* path, const char * mode) : virtIO_t(path, mode) //n
 
 	this->m_path = string(path);
 	this->m_mode = string(mode) + 'b';
-	this->m_file = fopen(m_path.c_str(), m_mode.c_str());
+	errno_t errorCode = fopen_s(&m_file, m_path.c_str(), m_mode.c_str());
 
-	if (m_file == NULL){
+	if (m_file == NULL || errorCode != 0){
 		m_status = virtIO_t::cant_open_file_e;
 		throw IOCustomException("Error while trying to open file.\n");
 		return;
