@@ -146,3 +146,13 @@ virtIO_t& binIO_t::operator>>(float& buf){
 virtIO_t& binIO_t::operator>>(unsigned char& buf){
 	return readTemplate<unsigned char>(buf);
 }
+
+virtIO_t& binIO_t::operator<<(void* buffer)
+{
+	return virtIO_t::operator<<(buffer);
+}
+
+virtIO_t& binIO_t::operator>>(void* buffer)
+{
+	return virtIO_t::operator>>(buffer);
+}

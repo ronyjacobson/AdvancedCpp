@@ -30,7 +30,6 @@ public:
 
 	// operator<< overloads
 	virtIO_t& operator<<(const void* buffer);
-	//virtual virtIO_t& operator<<(const char* buffer) = 0;
 	virtual  virtIO_t& operator<<(const char& buffer) = 0;
 	virtual  virtIO_t& operator<<(const unsigned char& buffer) = 0;
 	virtual  virtIO_t& operator<<(const short& buffer) = 0;
@@ -44,7 +43,6 @@ public:
 
 	// operator>> overloads
 	virtIO_t& operator>>(void* buffer);
-	//virtual virtIO_t& operator>>(char* buffer) = 0;
 	virtual  virtIO_t& operator>>(char& buffer) = 0;
 	virtual  virtIO_t& operator>>(unsigned char& buffer) = 0;
 	virtual  virtIO_t& operator>>(short& buffer) = 0;

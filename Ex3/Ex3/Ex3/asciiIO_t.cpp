@@ -136,3 +136,13 @@ virtIO_t& asciiIO_t::operator<<(const double& buf)
 {
 	return writeTemplate<double>(buf, "%lf");
 }
+
+virtIO_t& asciiIO_t::operator<<(void* buffer)
+{
+	return virtIO_t::operator<<(buffer);
+}
+
+virtIO_t& asciiIO_t::operator>>(void* buffer)
+{
+	return virtIO_t::operator>>(buffer);
+}
