@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cstring>
 #include "virtIO_t.h"
 #include "asciiIO_t.h"
 #include "binIO_t.h"
@@ -12,14 +14,14 @@ public:
 
 	~Test_t()
 	{
-		if (path != NULL)
+		if (path_char_pointer != NULL)
 		{
-			delete path;
+			delete path_char_pointer;
 		}
 
-		if (mode != NULL)
+		if (mode_char_pointer != NULL)
 		{
-			delete mode;
+			delete mode_char_pointer;
 		}
 
 		delete aIO;
@@ -30,8 +32,12 @@ public:
 		// Get user input
 		cout << endl << "Enter file path:" << endl;
 		cin >> path;
+		path_char_pointer = (char *)malloc(path.size() + 1);
+		memcpy(path_char_pointer, path.c_str(), path.size() + 1);
 		cout << "Enter io mode:" << endl;
 		cin >> mode;
+		mode_char_pointer = (char *)malloc(mode.size() + 1);
+		memcpy(mode_char_pointer, mode.c_str(), mode.size() + 1);
 		cout << "Enter an interger:" << endl;
 		cin >> i;
 		cout << "Enter a float:" << endl;
@@ -50,11 +56,11 @@ public:
 	}
 
 	void createNewAsciiIO(){
-		aIO = new asciiIO_t(path, mode);
+		aIO = new asciiIO_t(path_char_pointer, mode_char_pointer);
 	}
 
 	void createNewBinIO(){
-		bIO = new binIO_t(path, mode);
+		bIO = new binIO_t(path_char_pointer, mode_char_pointer);
 	}
 
 	void runExampleTest(){
@@ -70,8 +76,11 @@ private:
 	asciiIO_t * aIO;
 	binIO_t * bIO;
 
-	char * path;
-	char * mode;
+	string path;
+	string mode;
+
+	char * path_char_pointer;
+	char * mode_char_pointer;
 
 	int 	i;
 	float 	f;
