@@ -63,9 +63,11 @@ public:
 		bIO = new binIO_t(path_char_pointer, mode_char_pointer);
 	}
 
-	void runExampleTest(){
-
+	void runAIOExampleTest(){
 		*aIO << i << ' ' << f;  		// ASCII file ( with blanks )
+	}
+
+	void runBIOExampleTest(){
 		*bIO << i << f;					// Binary file
 		*bIO << name, nameLength;		// both operator -  ',' and  << for 'void*'
 		*bIO >> i >> f;
@@ -106,7 +108,8 @@ int main() {
 			<< "3 - create new default binary IO object" << endl
 			<< "4 - create new ascii IO object" << endl
 			<< "5 - create new binary IO object" << endl
-			<< "6 - run test" << endl
+			<< "6 - run aIO test" << endl
+			<< "7 - run bIO test" << endl
 			<< "Any other key - quit" << endl;
 		cin >> c;
 		cout << endl;
@@ -128,7 +131,10 @@ int main() {
 			test.createNewBinIO();
 			break;
 		case 6:
-			test.runExampleTest();
+			test.runAIOExampleTest();
+			break;
+		case 7:
+			test.runBIOExampleTest();
 			break;
 		default:
 			cont = false;
