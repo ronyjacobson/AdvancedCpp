@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#ifdef TEMPLATE_TEMPLATE_MODE
+#ifndef TEMPLATE_TEMPLATE_MODE
 
 	#define template_decleration  template<typename T, template <typename, typename> class CT> 
 	template <typename T, template <typename, typename> class CT> class tContainer_t
@@ -16,7 +16,7 @@ using namespace std;
 #else
 
 	#define template_decleration  template <typename T, typename CT> 
-	template <typename T, typename CT > class tContainer_t
+	template <typename T, typename CT> class tContainer_t
 
 #endif
 
@@ -48,10 +48,10 @@ public:
 	inline T* last() const;
 
 	// Find specific element by value
-	T* find(const T & element) const;
+	const T* find(const T & element) const;
 
 	// Remove specific element and returns pointer to it
-	T* remove(const T & element);
+	const T* remove(const T & element);
 
 	// Remove all elements
 	void removeAll();
@@ -63,8 +63,8 @@ public:
 	void removeAndDeleteAll();
 
 	// [] Operator
-	T* & operator[] (size_t index);
-	T* operator[] (size_t index) const;
+	const T* & operator[] (size_t index);
+	const T* operator[] (size_t index) const;
 
 private:
 
@@ -74,9 +74,9 @@ private:
 	// = Operator
 	tContainer_t<T, CT>&  operator=(const tContainer_t<T, CT>& container);
 
-#ifdef TEMPLATE_TEMPLATE_MODE
+#ifndef TEMPLATE_TEMPLATE_MODE
 
-	CT<T *, allocator<T *>> m_container;
+	CT<T *, allocator<T*>> m_container;
 	typedef typename CT<T*, allocator<T*>>::const_iterator const_iterator_t;
 	typedef typename CT<T*, allocator<T*>>::iterator iterator_t;
 
@@ -90,7 +90,7 @@ private:
 };
 
 // << Operator
-	template_decleration ostream& operator<<(ostream& os, const tContainer_t<T, CT> & container)
+template_decleration ostream& operator<<(ostream& os, const tContainer_t<T, CT> & container)
 {
 	tContainer_t<T, CT>::const_iterator_t iterator;
 	for (iterator = container.m_container.begin(); iterator != container.m_container.end(); iterator++)
@@ -148,7 +148,7 @@ template_decleration T* tContainer_t<T, CT>::last() const
 }
 
 // Find specific element by value
-template_decleration T* tContainer_t<T, CT>::find(const T & element) const
+template_decleration const T* tContainer_t<T, CT>::find(const T & element) const
 {
 	// Use STL algorithm “find_if”  with eh compare predicate
 	const_iterator_t found = find_if(m_container.begin(), m_container.end(), compare<T>(element));
@@ -161,7 +161,7 @@ template_decleration T* tContainer_t<T, CT>::find(const T & element) const
 }
 
 // Remove specific element and returns pointer to it
-template_decleration T* tContainer_t<T, CT>::remove(const T & element)
+template_decleration const T* tContainer_t<T, CT>::remove(const T & element)
 {
 	// Use STL algorithm “find_if”  with eh compare predicate
 	const_iterator_t found = find_if(m_container.begin(), m_container.end(), compare<T>(element));
@@ -185,7 +185,7 @@ template_decleration void tContainer_t<T, CT>::removeAll()
 template_decleration void tContainer_t<T, CT>::removeAndDelete(const T& element)
 {
 
-	T * found = remove(element);
+	const T * found = remove(element);
 
 	if (found != 0)
 	{
@@ -207,7 +207,7 @@ template_decleration void  tContainer_t<T, CT>::removeAndDeleteAll()
 
 
 // [] Operator
-template_decleration T*&  tContainer_t<T, CT>::operator[] (size_t index)
+template_decleration const T*&  tContainer_t<T, CT>::operator[] (size_t index)
 {
 	// Check if using vector or list
 	if (typeid(m_container) == typeid(vector<T*>)) {
@@ -221,7 +221,7 @@ template_decleration T*&  tContainer_t<T, CT>::operator[] (size_t index)
 	}
 }
 
-template_decleration T* tContainer_t<T, CT>::operator[] (size_t index) const
+template_decleration const T* tContainer_t<T, CT>::operator[] (size_t index) const
 {
 	// Check if using vector or list
 	if (typeid(m_container) == typeid(vector<T*>)) {
@@ -254,5 +254,3 @@ private:
 };
 
 #endif
-
-

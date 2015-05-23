@@ -9,7 +9,7 @@
 
 using namespace std;
 
-#ifdef TEMPLATE_TEMPLATE_MODE
+#ifndef TEMPLATE_TEMPLATE_MODE
 	template<typename T, template <typename, typename> class CT> static void runTest()
 #else
 	template<typename T, typename CT> static void runTest()
@@ -18,7 +18,7 @@ using namespace std;
 	unsigned int c;
 	tContainer_t<T, CT> container;
 	T* element;
-	T* containerElement;
+	const T* containerElement;
 	bool cont = true;
 	while (cont) {
 
@@ -154,18 +154,18 @@ int main() {
 
 		switch (c) {
 		case 1:
-			#ifdef TEMPLATE_TEMPLATE_MODE
-				runTest<int, vector>();
+			#ifndef TEMPLATE_TEMPLATE_MODE
+				runTest<int, vector>();	
 			#else
-				test<int, vector<int*>>();
+				runTest<int, vector<int*>>();
 			#endif
 			cont = false;
 			break;
 		case 2:
-			#ifdef TEMPLATE_TEMPLATE_MODE
+			#ifndef TEMPLATE_TEMPLATE_MODE
 				runTest<int, list>();
 			#else
-				test<int, list<int*>>();
+				runTest<int, list<int*>>();
 			#endif
 			cont = false;
 			break;
